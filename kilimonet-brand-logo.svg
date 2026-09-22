@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="290 140 450 515" width="450" height="515">
+  <defs>
+    <!-- Vertical Column - Left Dark Face -->
+    <linearGradient id="emblemStemLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24282c" />
+      <stop offset="40%" stop-color="#181b1e" />
+      <stop offset="100%" stop-color="#0e1012" />
+    </linearGradient>
+
+    <!-- Vertical Column - Front/Right Bevel -->
+    <linearGradient id="emblemStemRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3d444c" />
+      <stop offset="50%" stop-color="#4f5963" />
+      <stop offset="100%" stop-color="#2b3137" />
+    </linearGradient>
+
+    <!-- Vertical Column - Top Bevel -->
+    <linearGradient id="emblemStemTop" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#55606b" />
+      <stop offset="100%" stop-color="#2f353b" />
+    </linearGradient>
+
+    <!-- Circuit Trace Gold -->
+    <linearGradient id="emblemCircuitGold" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c9972c" />
+      <stop offset="50%" stop-color="#fad66d" />
+      <stop offset="100%" stop-color="#e8b438" />
+    </linearGradient>
+    <filter id="emblemGoldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#ffd76a" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Upper Arm - Emerald Green Top Face -->
+    <linearGradient id="emblemGreenTop" x1="0%" y1="100%" x2="80%" y2="0%">
+      <stop offset="0%" stop-color="#006c31" />
+      <stop offset="45%" stop-color="#008a3f" />
+      <stop offset="85%" stop-color="#00a84d" />
+      <stop offset="100%" stop-color="#14bd5c" />
+    </linearGradient>
+
+    <!-- Upper Arm - Emerald Green Highlight Edge -->
+    <linearGradient id="emblemGreenBevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2fe07b" />
+      <stop offset="100%" stop-color="#009945" />
+    </linearGradient>
+
+    <!-- Upper Arm - Underside Shadow -->
+    <linearGradient id="emblemGreenUnderside" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#004a21" />
+      <stop offset="100%" stop-color="#002d14" />
+    </linearGradient>
+
+    <!-- Lower Arm - Chrome Silver Top Face -->
+    <linearGradient id="emblemSilverTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="25%" stop-color="#e8edf1" />
+      <stop offset="70%" stop-color="#c8d2db" />
+      <stop offset="100%" stop-color="#a6b2bd" />
+    </linearGradient>
+
+    <!-- Lower Arm - Silver Front/Side Face -->
+    <linearGradient id="emblemSilverSide" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bdc6cf" />
+      <stop offset="50%" stop-color="#939fa9" />
+      <stop offset="100%" stop-color="#67737d" />
+    </linearGradient>
+
+    <!-- Lower Arm - Bevel Edge -->
+    <linearGradient id="emblemSilverBevel" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5a646c" />
+      <stop offset="100%" stop-color="#8a96a0" />
+    </linearGradient>
+
+    <!-- 3D Gold Ribbon - Body Gradient -->
+    <linearGradient id="emblemGoldRibbon" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b67f17" />
+      <stop offset="20%" stop-color="#dfa931" />
+      <stop offset="45%" stop-color="#fae27c" />
+      <stop offset="70%" stop-color="#e5b236" />
+      <stop offset="90%" stop-color="#c28b1e" />
+      <stop offset="100%" stop-color="#eed168" />
+    </linearGradient>
+
+    <!-- Gold Ribbon - Upper Sheen Edge -->
+    <linearGradient id="emblemGoldSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5b8" />
+      <stop offset="50%" stop-color="#ffd966" />
+      <stop offset="100%" stop-color="#b88319" />
+    </linearGradient>
+
+    <!-- Gold Ribbon - Inner Rim Shadow -->
+    <linearGradient id="emblemGoldInnerRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6d4808" />
+      <stop offset="40%" stop-color="#9b6c13" />
+      <stop offset="100%" stop-color="#553805" />
+    </linearGradient>
+
+    <filter id="emblemSoftShadow" x="-15%" y="-15%" width="135%" height="135%">
+      <feDropShadow dx="2" dy="8" stdDeviation="6" flood-color="#08120d" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- 3D K Emblem with no outer container clipping -->
+  <g id="k-emblem-tight">
+    <!-- Soft Contact Shadow -->
+    <ellipse cx="490" cy="630" rx="210" ry="18" fill="#000000" opacity="0.15" filter="blur(10px)" />
+
+    <!-- Stem Left Dark Face -->
+    <polygon points="340,215 455,160 455,618 340,600" fill="url(#emblemStemLeft)" />
+    <polygon points="340,215 455,160 458,162 343,218" fill="url(#emblemStemTop)" />
+
+    <!-- Gold Circuit Traces on Dark Column -->
+    <g id="circuit-traces" filter="url(#emblemGoldGlow)">
+      <path d="M 366,540 L 366,375 L 392,342 L 418,342" 
+            fill="none" stroke="url(#emblemCircuitGold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="426" cy="342" r="14" fill="url(#emblemCircuitGold)" />
+      <circle cx="426" cy="342" r="7" fill="#181b1e" />
+
+      <path d="M 384,545 L 384,400 L 405,376" 
+            fill="none" stroke="url(#emblemCircuitGold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="408" cy="372" r="14" fill="url(#emblemCircuitGold)" />
+      <circle cx="408" cy="372" r="7" fill="#181b1e" />
+
+      <path d="M 404,550 L 404,450 L 440,412 L 452,412" 
+            fill="none" stroke="url(#emblemCircuitGold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="452" cy="412" r="13" fill="url(#emblemCircuitGold)" />
+      <circle cx="452" cy="412" r="6" fill="#181b1e" />
+    </g>
+
+    <!-- Stem Right Bevel Column -->
+    <polygon points="455,160 458,162 458,620 455,618" fill="url(#emblemStemRight)" />
+
+    <!-- Lower Arm (Chrome Silver) -->
+    <g id="silver-arm">
+      <polygon points="455,420 590,560 690,622 715,622 575,485 455,420" fill="url(#emblemSilverBevel)" />
+      <polygon points="455,410 615,580 715,622 650,622 510,505 455,455" fill="url(#emblemSilverSide)" />
+      <polygon points="455,395 650,570 715,622 615,580 455,430" fill="url(#emblemSilverTop)" filter="url(#emblemSoftShadow)" />
+      <polygon points="460,402 642,568 648,564 466,398" fill="#ffffff" opacity="0.8" />
+    </g>
+
+    <!-- Upper Arm (Emerald Green) -->
+    <g id="green-arm">
+      <polygon points="455,390 625,245 710,215 570,360 455,410" fill="url(#emblemGreenUnderside)" />
+      <polygon points="455,370 590,215 710,215 560,380 455,430" fill="url(#emblemGreenTop)" filter="url(#emblemSoftShadow)" />
+      <polygon points="590,215 710,215 706,223 586,223" fill="url(#emblemGreenBevel)" />
+      <polygon points="455,370 455,430 468,415 468,360" fill="#005224" />
+      <polygon points="480,380 670,225 680,228 490,385" fill="#38f08c" opacity="0.45" />
+    </g>
+
+    <!-- 3D Curved Gold Ribbon -->
+    <g id="gold-ribbon" filter="url(#emblemSoftShadow)">
+      <path d="M 315,570 C 315,595 380,630 450,605 C 510,580 575,490 635,340 C 600,430 520,530 440,560 C 370,580 325,565 315,570 Z" 
+            fill="#05140d" opacity="0.3" filter="blur(6px)" />
+
+      <path d="M 318,525 C 310,555 320,590 350,605 C 390,622 435,605 460,575 L 452,560 C 430,585 390,600 360,588 C 335,575 328,550 334,530 Z" 
+            fill="url(#emblemGoldInnerRim)" />
+
+      <path d="M 318,525 
+               C 310,575 350,612 405,605 
+               C 460,598 510,545 560,470 
+               C 595,415 625,355 632,340 
+               C 628,360 595,450 540,520 
+               C 490,580 435,618 385,612 
+               C 340,606 312,570 318,525 Z" 
+            fill="url(#emblemGoldRibbon)" />
+
+      <path d="M 318,525 
+               C 328,580 380,612 440,580 
+               C 500,548 555,475 632,340 
+               C 625,360 560,480 495,548 
+               C 440,582 375,585 332,545 Z" 
+            fill="url(#emblemGoldSheen)" opacity="0.95" />
+
+      <polygon points="632,340 626,355 620,358" fill="#ffffff" />
+    </g>
+  </g>
+</svg>
