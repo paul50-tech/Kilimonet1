@@ -363,18 +363,85 @@ select:focus-visible {
   border-radius: var(--radius-md);
   padding: 1.2rem;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+  transition: transform 0.32s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.28s ease, box-shadow 0.32s ease, background 0.28s ease;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
 }
 
 .problem-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.015);
   border-color: var(--line-contrast);
   box-shadow: var(--shadow-md);
+}
+
+/* Precision Farming Technology Card: Interactive Scaling Animation & Micro-transitions */
+.problem-card--precision,
+.problem-strip > .problem-card:first-child {
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.3s ease,
+              background 0.3s ease;
+}
+
+.problem-card--precision::before,
+.problem-strip > .problem-card:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32 0%, #43a047 50%, #81c784 100%);
+  opacity: 0;
+  transform: scaleX(0.3);
+  transform-origin: left center;
+  transition: opacity 0.32s ease, transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.problem-card--precision:hover,
+.problem-strip > .problem-card:first-child:hover,
+.problem-card--precision:focus-visible,
+.problem-strip > .problem-card:first-child:focus-visible {
+  transform: translateY(-6px) scale(1.035);
+  border-color: rgba(46, 125, 50, 0.48);
+  box-shadow: 0 16px 36px rgba(46, 125, 50, 0.16), 0 4px 14px rgba(17, 34, 21, 0.08);
+  background: linear-gradient(175deg, #ffffff 0%, #f4faf5 100%);
+  z-index: 2;
+}
+
+.problem-card--precision:hover::before,
+.problem-strip > .problem-card:first-child:hover::before,
+.problem-card--precision:focus-visible::before,
+.problem-strip > .problem-card:first-child:focus-visible::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.problem-card--precision:hover .mini-icon,
+.problem-strip > .problem-card:first-child:hover .mini-icon,
+.problem-card--precision:focus-visible .mini-icon,
+.problem-strip > .problem-card:first-child:focus-visible .mini-icon {
+  transform: scale(1.12) rotate(-4deg);
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  color: #ffffff;
+  border-color: #1b5e20;
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.3);
+}
+
+.problem-card--precision:hover h3,
+.problem-strip > .problem-card:first-child:hover h3,
+.problem-card--precision:focus-visible h3,
+.problem-strip > .problem-card:first-child:focus-visible h3 {
+  color: var(--accent-deep);
 }
 
 .problem-card h3 {
   font-size: 1.25rem;
   margin-top: 0.55rem;
+  transition: color 0.25s ease;
 }
 
 .problem-card p {
@@ -394,6 +461,11 @@ select:focus-visible {
   align-items: center;
   justify-content: center;
   letter-spacing: 0.03em;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 .service-categories {
@@ -1132,6 +1204,12 @@ main > section:first-of-type.reveal {
 @media (prefers-reduced-motion: reduce) {
   .whatsapp-float-widget {
     animation: none;
+  }
+  .problem-card,
+  .problem-card--precision,
+  .problem-card .mini-icon {
+    transition: none !important;
+    transform: none !important;
   }
 }
 

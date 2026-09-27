@@ -67,35 +67,135 @@
 
     <section class="smart-grid">
       <article class="smart-panel reveal">
-        <h2>1. Crop Diagnosis Tool</h2>
+        <div class="panel-header-with-badge">
+          <h2>1. Kenyan Crop Diagnosis &amp; Pest Scanner</h2>
+          <span class="badge-ai-engine">AI &amp; Pathogen Engine</span>
+        </div>
+        <p class="panel-subtitle">Upload or snap a leaf photo for instant laboratory-grade identification against common Kenyan pests, fungal blights, and bacterial wilts.</p>
+
+        <!-- Quick Kenyan Crop Selector -->
+        <div class="crop-selector-group">
+          <label class="field-heading">Select Crop Category:</label>
+          <div class="crop-chips-grid" id="crop-chips">
+            <button type="button" class="crop-chip active" data-crop="Maize"><span class="chip-emoji">🌽</span><span class="chip-label">Maize</span></button>
+            <button type="button" class="crop-chip" data-crop="Tomatoes"><span class="chip-emoji">🍅</span><span class="chip-label">Tomatoes</span></button>
+            <button type="button" class="crop-chip" data-crop="Potatoes"><span class="chip-emoji">🥔</span><span class="chip-label">Potatoes</span></button>
+            <button type="button" class="crop-chip" data-crop="Cabbages"><span class="chip-emoji">🥬</span><span class="chip-label">Cabbages</span></button>
+            <button type="button" class="crop-chip" data-crop="French Beans"><span class="chip-emoji">🫘</span><span class="chip-label">French Beans</span></button>
+            <button type="button" class="crop-chip" data-crop="Capsicum"><span class="chip-emoji">🌶️</span><span class="chip-label">Capsicum</span></button>
+            <button type="button" class="crop-chip" data-crop="Avocados"><span class="chip-emoji">🥑</span><span class="chip-label">Avocados</span></button>
+            <button type="button" class="crop-chip" data-crop="Other"><span class="chip-emoji">🌿</span><span class="chip-label">Other Crop</span></button>
+          </div>
+        </div>
+
         <form id="diagnosis-form" class="contact-form full" action="#" method="post" novalidate>
           <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" id="selected-crop" name="crop_type" value="Maize" />
+
+          <!-- Dual upload & camera actions -->
+          <div class="upload-options-grid">
+            <label class="upload-dropzone">
+              <input id="crop-image" type="file" accept="image/*" />
+              <div class="upload-dropzone-content">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span class="upload-primary-text">Upload Leaf / Plant Photo</span>
+                <span class="upload-secondary-text">PNG, JPG, WebP up to 6MB</span>
+              </div>
+            </label>
+            <label class="camera-dropzone">
+              <input id="crop-camera" type="file" accept="image/*" capture="environment" />
+              <div class="upload-dropzone-content">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span class="upload-primary-text">Take Live Camera Photo</span>
+                <span class="upload-secondary-text">Directly from farm or greenhouse</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Quick Sample Leaf Selector for Instant Testing -->
+          <div class="sample-leaves-wrap">
+            <span class="sample-leaves-label">Or test diagnosis with a sample field leaf:</span>
+            <div class="sample-chips-row">
+              <button type="button" class="btn-sample-chip" data-sample="maize-armyworm">🌽 Maize Whorl</button>
+              <button type="button" class="btn-sample-chip" data-sample="tomato-blight">🍅 Tomato Blight</button>
+              <button type="button" class="btn-sample-chip" data-sample="potato-pcn">🥔 Potato PCN</button>
+              <button type="button" class="btn-sample-chip" data-sample="cabbage-dbm">🥬 Cabbage DBM</button>
+              <button type="button" class="btn-sample-chip" data-sample="beans-rust">🫘 Bean Rust</button>
+              <button type="button" class="btn-sample-chip" data-sample="capsicum-spot">🌶️ Capsicum Spot</button>
+              <button type="button" class="btn-sample-chip" data-sample="avocado-anthracnose">🥑 Avocado Spot</button>
+            </div>
+          </div>
+
+          <!-- Dynamic crop input for custom crops -->
+          <div id="custom-crop-field" class="custom-crop-field" hidden>
+            <label>
+              Specify Crop Name
+              <input id="custom-crop-name" type="text" placeholder="e.g. Watermelon, Onion, Kale / Sukuma Wiki, Wheat" />
+            </label>
+          </div>
+
+          <div class="form-row-2col">
+            <label>
+              Location / County in Kenya
+              <input id="farmer-location" type="text" name="location" placeholder="e.g. Kiambu, Nakuru, Uasin Gishu" value="Kiambu, Kenya" />
+            </label>
+            <label>
+              Crop Growth Stage (optional)
+              <select id="crop-stage" name="crop_stage">
+                <option value="Vegetative / Foliage">Vegetative / Young Foliage</option>
+                <option value="Flowering / Budding">Flowering / Budding</option>
+                <option value="Fruit / Pod / Tuber Development">Fruit / Pod / Tuber Development</option>
+                <option value="Maturity / Harvest Phase">Maturity / Harvest Phase</option>
+              </select>
+            </label>
+          </div>
+
           <label>
-            Upload crop image
-            <input id="crop-image" type="file" accept="image/*" required />
+            Observed Symptoms (optional notes)
+            <textarea id="symptoms" name="symptoms" rows="2" placeholder="e.g. dark brown target-board rings on leaves, yellowing halos, caterpillar holes in whorl, wilting during noon sun..."></textarea>
           </label>
-          <label>
-            Capture with camera
-            <input id="crop-camera" type="file" accept="image/*" capture="environment" />
-          </label>
-          <label>
-            Crop type (optional)
-            <input id="crop-type" type="text" name="crop_type" placeholder="e.g. tomato, maize, cabbage" />
-          </label>
-          <label>
-            Location (optional)
-            <input id="farmer-location" type="text" name="location" placeholder="County or village" />
-          </label>
-          <label>
-            Symptoms (optional)
-            <textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe spots, wilting, yellowing, pests..." ></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary">Analyze Crop Issue</button>
+
+          <button id="btn-diagnose-submit" type="submit" class="btn btn-primary btn-diagnose-glow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+            <span>Scan &amp; Diagnose Crop Health</span>
+          </button>
         </form>
+
+        <!-- Image Preview Area with Scan Overlay -->
         <div id="image-preview-wrap" class="image-preview-wrap" hidden>
-          <img id="image-preview" referrerpolicy="no-referrer" alt="Selected crop preview" />
-          <p id="image-meta"></p>
+          <div class="preview-image-container">
+            <img id="image-preview" referrerpolicy="no-referrer" alt="Selected crop preview" />
+            <button type="button" id="btn-clear-image" class="btn-clear-preview" aria-label="Remove image">&times;</button>
+          </div>
+          <p id="image-meta" class="image-meta"></p>
         </div>
+
+        <!-- Interactive Radar Scanner Overlay & Progress -->
+        <div id="scanning-radar" class="scanning-radar-container" hidden>
+          <div class="radar-scan-box">
+            <div class="radar-sweep-beam"></div>
+            <div class="radar-grid-lines"></div>
+            <div class="radar-reticle top-left"></div>
+            <div class="radar-reticle top-right"></div>
+            <div class="radar-reticle bottom-left"></div>
+            <div class="radar-reticle bottom-right"></div>
+            <div class="radar-crosshair"></div>
+            <div class="radar-laser-line"></div>
+          </div>
+          <div class="scanning-status-card">
+            <div class="scanning-headline">
+              <span class="scanning-spinner"></span>
+              <h4 id="scanning-stage-title" class="scanning-stage-title">Initializing High-Resolution Pathology Scan...</h4>
+              <span id="scanning-percent" class="scanning-percent-badge">0%</span>
+            </div>
+            <div class="scanning-progress-bar">
+              <div id="scanning-progress-fill" class="scanning-progress-fill" style="width: 0%"></div>
+            </div>
+            <p id="scanning-stage-desc" class="scanning-stage-desc">Calibrating leaf surface optical spectrum...</p>
+          </div>
+        </div>
+
+        <!-- Diagnosis Result Card -->
         <div id="diagnosis-result" class="result-card" hidden></div>
       </article>
 
@@ -249,6 +349,35 @@
         </div>
       </article>
     </section>
+
+    <!-- Agronomic Clinical Prescription Export & Print Modal -->
+    <div id="rx-modal" class="rx-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="rx-modal-title">
+      <div class="rx-modal-dialog">
+        <div class="rx-modal-header">
+          <div class="rx-modal-header-text">
+            <span class="rx-badge-pill">Official Agronomic Rx Slip</span>
+            <h3 id="rx-modal-title">Kilimonet Clinical Prescription &amp; Field Order</h3>
+          </div>
+          <button type="button" id="rx-modal-close" class="rx-modal-close-btn" aria-label="Close Prescription Slip">&times;</button>
+        </div>
+
+        <div class="rx-modal-body" id="rx-printable-content">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <div class="rx-modal-footer">
+          <button type="button" class="btn btn-secondary" id="rx-modal-dismiss-btn">Close</button>
+          <button type="button" class="btn btn-primary btn-print-action" id="rx-modal-print-btn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>Print / Save as PDF</span>
+          </button>
+          <a id="rx-modal-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-rx">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Send via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </main>
 
   <section class="intake-rail">
