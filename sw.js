@@ -1,5 +1,5 @@
-// Kilimonet High-Performance Service Worker v3
-const CACHE_NAME = 'kilimonet-cache-v3';
+// Kilimonet High-Performance Service Worker v5
+const CACHE_NAME = 'kilimonet-cache-v5';
 
 const STATIC_ASSETS = [
   '/',
@@ -28,13 +28,18 @@ const STATIC_ASSETS = [
   '/smart-assist.js',
   '/kilimonet-brand-logo.svg',
   '/kilimonet-brand-logo.png',
-  '/kilimonet.logo.small.webp',
   '/kilimonet.icon.png',
-  '/kilimonet-logo.svg',
   '/kilimonet-icon.svg',
+  '/photo-hero-greenhouse.jpg',
   '/photo-hero-greenhouse.webp',
   '/photo-hero-greenhouse-800.webp',
-  '/photo-hero-greenhouse-1200.webp'
+  '/photo-hero-greenhouse-1200.webp',
+  '/photo-service-greenhouse-irrigation.webp',
+  '/photo-service-consultancy.webp',
+  '/photo-service-design-construction.webp',
+  '/photo-service-seedlings.webp',
+  '/photo-service-training.webp',
+  '/photo-about-farm.webp'
 ];
 
 self.addEventListener('install', (event) => {

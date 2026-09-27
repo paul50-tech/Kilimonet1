@@ -39,6 +39,74 @@
   font-size: clamp(1.35rem, 2.4vw, 2rem);
 }
 
+.sample-cases-bar {
+  margin: 0.8rem 0 1.2rem;
+  background: #f2f7f3;
+  border: 1px solid #d4e5d8;
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+}
+
+.sample-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-deep);
+  margin-bottom: 0.5rem;
+}
+
+.sample-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.btn-sample {
+  background: #ffffff;
+  border: 1px solid #c2d8c6;
+  border-radius: var(--radius-xs);
+  padding: 0.38rem 0.72rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-sample:hover {
+  background: var(--accent-deep);
+  color: #ffffff;
+  border-color: var(--accent-deep);
+}
+
+.county-filter-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.filter-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+}
+
+.county-filter-box select {
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
 .image-preview-wrap {
   margin-top: 0.9rem;
   border: 1px solid var(--line);
@@ -58,30 +126,35 @@
 .meta-text {
   margin: 0.4rem 0 0;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .result-card {
-  margin-top: 0.9rem;
-  background: #f8fcf8;
+  margin-top: 1rem;
+  background: #ffffff;
   border: 1px solid var(--line);
-  border-radius: 0.85rem;
-  padding: 0.9rem;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .result-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  color: var(--accent-deep);
+  margin-bottom: 0.5rem;
 }
 
 .result-card p,
 .result-card li {
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.65;
+  font-size: 0.92rem;
 }
 
 .result-card ul {
   margin: 0.45rem 0 0;
-  padding-left: 1.1rem;
+  padding-left: 1.2rem;
 }
 
 .chip-list {
@@ -93,11 +166,11 @@
 
 .chip {
   border: 1px solid #c9dbc9;
-  border-radius: 999px;
-  padding: 0.24rem 0.65rem;
+  border-radius: var(--radius-xs);
+  padding: 0.22rem 0.6rem;
   background: #f0f8f1;
   color: var(--accent-deep);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 

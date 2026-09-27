@@ -237,6 +237,49 @@ function bindFarmerFlows() {
     renderAgrovets(result.products);
   });
 
+  // Sample Demos Handler
+  document.querySelectorAll('.btn-sample').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const crop = btn.getAttribute('data-crop') || '';
+      const symptoms = btn.getAttribute('data-symptoms') || '';
+      const loc = btn.getAttribute('data-loc') || '';
+
+      const cropInput = document.getElementById('crop-type');
+      const sympInput = document.getElementById('symptoms');
+      const locInput = document.getElementById('farmer-location');
+      if (cropInput) cropInput.value = crop;
+      if (sympInput) sympInput.value = symptoms;
+      if (locInput) locInput.value = loc;
+
+      latestImage = {
+        name: `sample-${crop}-diagnostic.jpg`,
+        type: 'image/jpeg',
+        size: 145000,
+        dataUrl: 'photo-hero-greenhouse-800.webp'
+      };
+
+      if (imagePreview && imagePreviewWrap && imageMeta) {
+        imagePreview.src = latestImage.dataUrl;
+        imageMeta.textContent = `Diagnostic Sample Loaded: ${crop.toUpperCase()} (${loc} Field Inspection)`;
+        imagePreviewWrap.hidden = false;
+      }
+
+      const result = await analyzeCropIssue({ cropType: crop, symptoms, image: latestImage });
+      latestDiagnosis = result;
+      renderDiagnosisResult(result);
+      renderRecommendedProducts(result.products);
+      renderAgrovets(result.products);
+      if (diagnosisResult) {
+        diagnosisResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+
+  const countySelect = document.getElementById('agrovet-county-select');
+  countySelect?.addEventListener('change', () => {
+    renderAgrovets(latestDiagnosis?.products || []);
+  });
+
   detectLocationBtn?.addEventListener('click', () => {
     if (!navigator.geolocation) {
       locationStatus.textContent = 'Geolocation not supported on this device/browser.';
@@ -513,6 +556,7 @@ function renderRecommendedProducts(products) {
 }
 
 function renderAgrovets(requiredProducts) {
+  const countyFilter = (document.getElementById('agrovet-county-select')?.value || '').trim().toLowerCase();
   const locationText = (document.getElementById('farmer-location')?.value || '').trim().toLowerCase();
   const products = requiredProducts?.length ? requiredProducts : [];
 
@@ -530,7 +574,10 @@ function renderAgrovets(requiredProducts) {
         distance = haversineKm(userPosition.lat, userPosition.lng, agrovet.lat, agrovet.lng);
       }
 
-      const countyMatch = !locationText || agrovet.county.toLowerCase().includes(locationText);
+      const matchesCountyFilter = !countyFilter || agrovet.county.toLowerCase() === countyFilter;
+      const matchesLocationText = !locationText || agrovet.county.toLowerCase().includes(locationText) || locationText.includes(agrovet.county.toLowerCase());
+      const countyMatch = matchesCountyFilter && matchesLocationText;
+
       return { ...agrovet, available, distance, countyMatch };
     })
     .filter((item) => item.available.length > 0 && (userPosition || item.countyMatch));
@@ -540,30 +587,36 @@ function renderAgrovets(requiredProducts) {
   }
 
   if (!list.length) {
-    agrovetList.innerHTML = '<p class="meta-text">No matching agrovet stock found yet. Try updating location or contact support.</p>';
+    agrovetList.innerHTML = '<p class="meta-text">No matching agrovet stock found for this selection. Try selecting "All Counties" or contact Kilimonet support.</p>';
     return;
   }
 
   agrovetList.innerHTML = list
     .map((item) => {
       const productLines = item.available
-        .map((p) => `<li>${escapeHtml(p.name)} - ${p.stock} in stock - KES ${p.price}</li>`)
+        .map((p) => `<li><strong>${escapeHtml(p.name)}:</strong> <span style="font-family: monospace; font-variant-numeric: tabular-nums;">${p.stock} units in stock</span> &bull; <strong>KES ${p.price.toLocaleString()}</strong></li>`)
         .join('');
       const distanceText = item.distance != null ? `${item.distance.toFixed(1)} km away` : item.county;
       const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${item.lat},${item.lng}`;
-      const firstProduct = encodeURIComponent(item.available[0]?.name || 'input');
-      const reserveLink = `mailto:${encodeURIComponent('kilimointergratedagritech@gmail.com')}?subject=Product%20Reservation&body=Please%20reserve%20${firstProduct}%20at%20${encodeURIComponent(item.name)}.`;
+      const firstProduct = item.available[0]?.name || 'Agro input';
+      const cleanPhone = item.phone.replace(/\s+/g, '');
+      const waText = encodeURIComponent(`Hello ${item.name}, I found your stock on the Kilimonet Smart Assist platform. I would like to reserve: ${firstProduct}.`);
+      const waUrl = `https://wa.me/${cleanPhone.replace('+', '')}?text=${waText}`;
 
       return `
         <article class="finder-item">
-          <h3>${escapeHtml(item.name)}</h3>
-          <p><strong>Location:</strong> ${escapeHtml(item.county)} | <strong>Distance:</strong> ${distanceText}</p>
-          <p><strong>Phone:</strong> <a href="tel:${item.phone.replace(/\s+/g, '')}">${escapeHtml(item.phone)}</a></p>
-          <ul>${productLines}</ul>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
+            <h3 style="margin: 0; color: var(--accent-deep);">${escapeHtml(item.name)}</h3>
+            <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent);">${escapeHtml(distanceText)}</span>
+          </div>
+          <p style="font-size: 0.84rem; color: var(--muted); margin: 0 0 0.5rem;">
+            <strong>County:</strong> ${escapeHtml(item.county)} &bull; <strong>Direct:</strong> <a href="tel:${cleanPhone}">${escapeHtml(item.phone)}</a>
+          </p>
+          <ul style="margin: 0.5rem 0 0.8rem; padding-left: 1.2rem; font-size: 0.88rem;">${productLines}</ul>
           <div class="finder-actions">
-            <a class="btn btn-secondary" href="tel:${item.phone.replace(/\s+/g, '')}">Call Agrovet</a>
-            <a class="btn btn-secondary" href="${mapsUrl}" target="_blank" rel="noreferrer">Directions</a>
-            <a class="btn btn-secondary" href="${reserveLink}">Reserve Product</a>
+            <a class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" href="tel:${cleanPhone}">Call Agrovet</a>
+            <a class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" href="${waUrl}" target="_blank" rel="noreferrer">WhatsApp Reserve</a>
+            <a class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" href="${mapsUrl}" target="_blank" rel="noreferrer">Map Directions</a>
           </div>
         </article>
       `;
