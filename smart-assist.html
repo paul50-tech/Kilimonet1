@@ -7,7 +7,7 @@
   <title>Smart Assist | Kilimonet Integrated Agrisystems Limited</title>
   <meta
     name="description"
-    content="Smart farmer assistance by Kilimonet: crop diagnosis, nearest agrovet matching, specialist support, and admin updates for stock and advisories."
+    content="Kilimonet Smart Assist is currently under final calibration. Service will be available soon with AI crop diagnostics, verified agrovet networks, and certified agronomist consultations."
   />
   <link rel="icon" type="image/svg+xml" href="kilimonet-icon.svg" />
   <link rel="icon" type="image/png" href="kilimonet.icon.png" />
@@ -48,682 +48,170 @@
       <a href="index.html#top">Home</a>
       <a href="services.html">Services</a>
       <a href="technology.html">Technology</a>
-      <a href="smart-assist.html">Smart Assist</a>
+      <a href="smart-assist.html" class="active">Smart Assist</a>
       <a href="partnerships.html">Partnerships</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-controls">
-      <button type="button" class="btn btn-secondary header-portal-btn" id="header-portal-btn" title="Open Admin &amp; Specialist Operations Portal">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="vertical-align:middle;margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        <span>Staff Portal</span>
-      </button>
       <a href="intake.html" class="btn btn-primary header-cta">Get Started</a>
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">&#9776;</button>
     </div>
   </header>
 
   <main class="smart-main">
+    <!-- Hero Status Section -->
     <section class="smart-hero reveal">
-      <p class="eyebrow">Farmer-Specialist-Agrovet Smart Connection</p>
-      <h1>Smart Farmer Assistance Module</h1>
-      <p>Upload crop images, receive diagnosis and recommendations, find nearby agrovets with stock, and connect with agricultural specialists.</p>
+      <div class="soon-badge-row">
+        <span class="soon-status-badge">
+          <span class="soon-pulse-dot"></span>
+          System In Development
+        </span>
+      </div>
+      <h1>Smart Assist</h1>
+      <p class="soon-hero-subtitle">Service will be available soon.</p>
+      <p class="soon-hero-desc">
+        We are actively finalizing field calibration and regional integration for the Kilimonet Smart Assist platform. 
+        Once live, Smart Assist will connect Kenyan farmers directly with automated crop disease diagnostics, verified agrovet input availability, and on-demand certified agronomist support across all 47 counties.
+      </p>
     </section>
 
-    <section class="smart-grid">
-      <article class="smart-panel reveal">
-        <div class="panel-header-with-badge">
-          <h2>1. Kenyan Crop Diagnosis &amp; Pest Scanner</h2>
-          <span class="badge-ai-engine">AI &amp; Pathogen Engine</span>
-        </div>
-        <p class="panel-subtitle">Upload or snap a leaf photo for instant laboratory-grade identification against common Kenyan pests, fungal blights, and bacterial wilts.</p>
+    <!-- Planned Service Capabilities -->
+    <section class="soon-features-section reveal">
+      <div class="section-title-wrap">
+        <p class="eyebrow">Upcoming Capabilities</p>
+        <h2>What Smart Assist Will Deliver</h2>
+        <p class="meta-text">Here is an overview of the core services currently undergoing final laboratory and field testing:</p>
+      </div>
 
-        <!-- Quick Kenyan Crop Selector -->
-        <div class="crop-selector-group">
-          <label class="field-heading">Select Crop Category:</label>
-          <div class="crop-chips-grid" id="crop-chips">
-            <button type="button" class="crop-chip active" data-crop="Maize"><span class="chip-emoji">🌽</span><span class="chip-label">Maize</span></button>
-            <button type="button" class="crop-chip" data-crop="Tomatoes"><span class="chip-emoji">🍅</span><span class="chip-label">Tomatoes</span></button>
-            <button type="button" class="crop-chip" data-crop="Potatoes"><span class="chip-emoji">🥔</span><span class="chip-label">Potatoes</span></button>
-            <button type="button" class="crop-chip" data-crop="Cabbages"><span class="chip-emoji">🥬</span><span class="chip-label">Cabbages</span></button>
-            <button type="button" class="crop-chip" data-crop="French Beans"><span class="chip-emoji">🫘</span><span class="chip-label">French Beans</span></button>
-            <button type="button" class="crop-chip" data-crop="Capsicum"><span class="chip-emoji">🌶️</span><span class="chip-label">Capsicum</span></button>
-            <button type="button" class="crop-chip" data-crop="Avocados"><span class="chip-emoji">🥑</span><span class="chip-label">Avocados</span></button>
-            <button type="button" class="crop-chip" data-crop="Other"><span class="chip-emoji">🌿</span><span class="chip-label">Other Crop</span></button>
+      <div class="soon-features-grid">
+        <article class="soon-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">🔬</span>
+            <span class="feature-badge">Coming Soon</span>
           </div>
-        </div>
-
-        <form id="diagnosis-form" class="contact-form full" action="#" method="post" novalidate>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input type="hidden" id="selected-crop" name="crop_type" value="Maize" />
-
-          <!-- Dual upload & camera actions -->
-          <div class="upload-options-grid">
-            <label class="upload-dropzone">
-              <input id="crop-image" type="file" accept="image/*" />
-              <div class="upload-dropzone-content">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                <span class="upload-primary-text">Upload Leaf / Plant Photo</span>
-                <span class="upload-secondary-text">PNG, JPG, WebP up to 6MB</span>
-              </div>
-            </label>
-            <label class="camera-dropzone">
-              <input id="crop-camera" type="file" accept="image/*" capture="environment" />
-              <div class="upload-dropzone-content">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                <span class="upload-primary-text">Take Live Camera Photo</span>
-                <span class="upload-secondary-text">Directly from farm or greenhouse</span>
-              </div>
-            </label>
-          </div>
-
-          <!-- Quick Sample Leaf Selector for Instant Testing -->
-          <div class="sample-leaves-wrap">
-            <span class="sample-leaves-label">Or test diagnosis with a sample field leaf:</span>
-            <div class="sample-chips-row">
-              <button type="button" class="btn-sample-chip" data-sample="maize-armyworm">🌽 Maize Whorl</button>
-              <button type="button" class="btn-sample-chip" data-sample="tomato-blight">🍅 Tomato Blight</button>
-              <button type="button" class="btn-sample-chip" data-sample="potato-pcn">🥔 Potato PCN</button>
-              <button type="button" class="btn-sample-chip" data-sample="cabbage-dbm">🥬 Cabbage DBM</button>
-              <button type="button" class="btn-sample-chip" data-sample="beans-rust">🫘 Bean Rust</button>
-              <button type="button" class="btn-sample-chip" data-sample="capsicum-spot">🌶️ Capsicum Spot</button>
-              <button type="button" class="btn-sample-chip" data-sample="avocado-anthracnose">🥑 Avocado Spot</button>
-            </div>
-          </div>
-
-          <!-- Dynamic crop input for custom crops -->
-          <div id="custom-crop-field" class="custom-crop-field" hidden>
-            <label>
-              Specify Crop Name
-              <input id="custom-crop-name" type="text" placeholder="e.g. Watermelon, Onion, Kale / Sukuma Wiki, Wheat" />
-            </label>
-          </div>
-
-          <div class="form-row-2col">
-            <label>
-              Location / County in Kenya
-              <input id="farmer-location" type="text" name="location" placeholder="e.g. Kiambu, Nakuru, Uasin Gishu" value="Kiambu, Kenya" />
-            </label>
-            <label>
-              Crop Growth Stage (optional)
-              <select id="crop-stage" name="crop_stage">
-                <option value="Vegetative / Foliage">Vegetative / Young Foliage</option>
-                <option value="Flowering / Budding">Flowering / Budding</option>
-                <option value="Fruit / Pod / Tuber Development">Fruit / Pod / Tuber Development</option>
-                <option value="Maturity / Harvest Phase">Maturity / Harvest Phase</option>
-              </select>
-            </label>
-          </div>
-
-          <label>
-            Observed Symptoms (optional notes)
-            <textarea id="symptoms" name="symptoms" rows="2" placeholder="e.g. dark brown target-board rings on leaves, yellowing halos, caterpillar holes in whorl, wilting during noon sun..."></textarea>
-          </label>
-
-          <button id="btn-diagnose-submit" type="submit" class="btn btn-primary btn-diagnose-glow">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
-            <span>Scan &amp; Diagnose Crop Health</span>
-          </button>
-        </form>
-
-        <!-- Image Preview Area with Scan Overlay -->
-        <div id="image-preview-wrap" class="image-preview-wrap" hidden>
-          <div class="preview-image-container">
-            <img id="image-preview" referrerpolicy="no-referrer" alt="Selected crop preview" />
-            <button type="button" id="btn-clear-image" class="btn-clear-preview" aria-label="Remove image">&times;</button>
-          </div>
-          <p id="image-meta" class="image-meta"></p>
-        </div>
-
-        <!-- Interactive Radar Scanner Overlay & Progress -->
-        <div id="scanning-radar" class="scanning-radar-container" hidden>
-          <div class="radar-scan-box">
-            <div class="radar-sweep-beam"></div>
-            <div class="radar-grid-lines"></div>
-            <div class="radar-reticle top-left"></div>
-            <div class="radar-reticle top-right"></div>
-            <div class="radar-reticle bottom-left"></div>
-            <div class="radar-reticle bottom-right"></div>
-            <div class="radar-crosshair"></div>
-            <div class="radar-laser-line"></div>
-          </div>
-          <div class="scanning-status-card">
-            <div class="scanning-headline">
-              <span class="scanning-spinner"></span>
-              <h4 id="scanning-stage-title" class="scanning-stage-title">Initializing High-Resolution Pathology Scan...</h4>
-              <span id="scanning-percent" class="scanning-percent-badge">0%</span>
-            </div>
-            <div class="scanning-progress-bar">
-              <div id="scanning-progress-fill" class="scanning-progress-fill" style="width: 0%"></div>
-            </div>
-            <p id="scanning-stage-desc" class="scanning-stage-desc">Calibrating leaf surface optical spectrum...</p>
-          </div>
-        </div>
-
-        <!-- Diagnosis Result Card -->
-        <div id="diagnosis-result" class="result-card" hidden></div>
-      </article>
-
-      <article class="smart-panel reveal" id="agrovet-hub-section">
-        <div class="agrovet-hub-header">
-          <div>
-            <h2>2. Nearest Agrovet Hub &amp; Input Network</h2>
-            <p class="agrovet-hub-intro">
-              Verified agrovets across all key agricultural counties from the Google Map business register. Filter by County &amp; Town, auto-detect nearest via GPS, or order directly via WhatsApp.
-            </p>
-          </div>
-          <span class="agrovet-network-badge" id="agrovet-network-count">Verified Network: 20+ Counties</span>
-        </div>
-
-        <!-- Filter & Search Controls -->
-        <div class="agrovet-filter-hub">
-          <div class="agrovet-filter-grid">
-            <div class="filter-field">
-              <label for="agrovet-county-select">Filter by Agricultural County:</label>
-              <select id="agrovet-county-select" class="form-select">
-                <option value="">All Agricultural Counties (Kenya)</option>
-              </select>
-            </div>
-
-            <div class="filter-field">
-              <label for="agrovet-town-select">Filter by Town / Sub-County:</label>
-              <select id="agrovet-town-select" class="form-select">
-                <option value="">All Towns &amp; Trading Hubs</option>
-              </select>
-            </div>
-
-            <div class="filter-field">
-              <label for="agrovet-search-input">Search Input / Chemical / Agrovet:</label>
-              <div class="search-input-wrap">
-                <input type="text" id="agrovet-search-input" class="form-input" placeholder="e.g. Belt 480SC, Ridomil, Juja..." />
-                <button type="button" id="agrovet-search-clear" class="btn-clear-search" title="Clear search" aria-label="Clear search" hidden>&times;</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="finder-controls-row">
-            <button id="detect-location-btn" class="btn btn-secondary btn-gps-detect" type="button">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-              <span>Auto-Detect My GPS Location</span>
-            </button>
-            <button id="agrovet-reset-filters-btn" class="btn btn-subtle-pill" type="button">
-              <span>Show All Agrovets</span>
-            </button>
-            <p id="location-status" class="location-status-badge">Location: Kenya Agricultural Breadbasket</p>
-          </div>
-        </div>
-
-        <div id="recommended-products-container" class="recommended-products-container" hidden>
-          <span class="recommended-label">🎯 Prescribed Inputs from Smart Diagnosis:</span>
-          <div id="recommended-products" class="chip-list"></div>
-        </div>
-
-        <div class="agrovet-results-bar">
-          <span id="agrovet-results-count" class="results-count-text">Loading verified agrovet network...</span>
-          <span id="agrovet-sort-indicator" class="sort-indicator-text">Google Map Business Register</span>
-        </div>
-
-        <div id="agrovet-list" class="stack-list agrovet-cards-grid"></div>
-      </article>
-    </section>
-
-    <section class="smart-panel reveal" id="specialist-support-section">
-      <div class="specialist-header-wrap">
-        <div>
-          <h2>3. Connected Specialist Dispatch &amp; Agronomist Consultation</h2>
-          <p class="panel-subtitle">
-            Connect directly with verified Kenyan agronomists and plant pathologists. Your latest crop diagnosis and scanned photo are automatically attached for priority clinical dispatch.
+          <h3>Kenyan Crop Disease &amp; Pest Scanner</h3>
+          <p>
+            Optical leaf-analysis engine calibrated for East African horticultural and staple crops, identifying fungal blights, bacterial wilts, nutrient deficiencies, and invasive pests with registered treatment plans.
           </p>
-        </div>
-        <div class="specialist-status-pill">
-          <span class="live-dot pulse"></span>
-          <span id="specialists-available-count">Agronomist Roster</span>
-        </div>
+          <ul class="feature-list">
+            <li>Instant leaf photo examination</li>
+            <li>Kenyan registered chemical active ingredients &amp; biologicals</li>
+            <li>Pre-Harvest Intervals (PHI) &amp; re-entry safety advice</li>
+          </ul>
+        </article>
+
+        <article class="soon-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">🏪</span>
+            <span class="feature-badge">Coming Soon</span>
+          </div>
+          <h3>Verified Agrovet Input Hub</h3>
+          <p>
+            A nationwide directory of certified agrodealers with stock availability verification, ensuring farmers access genuine crop protection chemicals, certified seeds, and specialized fertilizers.
+          </p>
+          <ul class="feature-list">
+            <li>County &amp; sub-county location mapping</li>
+            <li>Direct WhatsApp inquiries and order dispatch</li>
+            <li>Genuine input assurance &amp; manufacturer traceability</li>
+          </ul>
+        </article>
+
+        <article class="soon-feature-card">
+          <div class="feature-card-header">
+            <span class="feature-icon">👨‍🌾</span>
+            <span class="feature-badge">Coming Soon</span>
+          </div>
+          <h3>Connected Agronomist Dispatch</h3>
+          <p>
+            Direct 1-on-1 access to verified Kenyan agronomists and plant pathologists for clinical consultations, tailored spray schedules, and on-farm greenhouse inspections.
+          </p>
+          <ul class="feature-list">
+            <li>Fast clinical review for active crop distress</li>
+            <li>WhatsApp chat, phone advisory &amp; farm visit options</li>
+            <li>Season-long crop calendar planning</li>
+          </ul>
+        </article>
       </div>
+    </section>
 
-      <!-- Verified Specialist Roster with Direct WhatsApp Actions -->
-      <div class="specialist-roster-header">
-        <div>
-          <h3 class="specialist-roster-title">Available Agronomy Specialists &amp; Pathologists</h3>
-          <p class="meta-text">Direct 1-on-1 clinical diagnosis, spray schedule advice, and greenhouse system consultations.</p>
-        </div>
-      </div>
-
-      <div id="specialist-list" class="specialist-grid"></div>
-
-      <!-- Consultation Form with Auto-Populated Diagnosis & Photo Specimen -->
-      <div class="consultation-form-card" id="consultation-card">
-        <div class="consult-form-header">
-          <div>
-            <h3>Schedule Specialist Consultation / Dispatch Ticket</h3>
-            <p class="meta-text" style="margin: 0.2rem 0 0;">Fill your contact details; diagnosis and crop photo are auto-linked below.</p>
-          </div>
-          <span class="badge-auto-sync" id="consult-sync-badge">Auto-Synced with Step 1</span>
-        </div>
-
-        <!-- Dynamic Diagnosis & Photo Specimen Attachment Box -->
-        <div id="consult-diagnosis-preview" class="consult-attachment-box" hidden>
-          <div class="attachment-head">
-            <span class="attachment-tag">📎 Attached Crop Specimen &amp; AI Diagnosis</span>
-            <button type="button" class="btn-text-action" id="btn-detach-diagnosis">Detach Case</button>
-          </div>
-          <div class="attachment-body">
-            <div class="attachment-photo-wrap" id="consult-photo-container">
-              <img id="consult-attached-photo" src="" alt="Diagnosed Crop Specimen" />
-              <span class="photo-badge" id="consult-photo-label">Field Specimen</span>
-            </div>
-            <div class="attachment-info">
-              <div class="attachment-title-row">
-                <h4 id="consult-attach-crop-diag">Crop &bull; Diagnosis</h4>
-                <span class="severity-badge-mini high" id="consult-attach-severity">High Severity</span>
-              </div>
-              <p class="attachment-meta" id="consult-attach-meta">Confidence match &bull; Location</p>
-              <div class="attachment-products" id="consult-attach-products"></div>
-            </div>
-          </div>
-        </div>
-
-        <div id="consult-no-diagnosis-notice" class="consult-empty-notice">
-          <span>💡 <strong>Tip:</strong> Scan your crop leaf in <a href="#diagnosis-form" class="inline-link">Step 1 (Kenyan Crop Scanner)</a> to automatically attach the laboratory diagnosis and specimen photo here.</span>
-        </div>
-
-        <form id="consultation-form" class="contact-form full" action="#" method="post" novalidate>
-          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          
-          <div class="form-row-2">
-            <label>
-              Farmer Name
-              <input type="text" id="consult-name" required placeholder="e.g. Samuel Mwangi" />
-            </label>
-            <label>
-              Phone (WhatsApp Enabled) or Email
-              <input type="text" id="consult-contact" required placeholder="e.g. 0712 345 678" />
-            </label>
-          </div>
-
-          <div class="form-row-2">
-            <label>
-              County / Farm Location
-              <input type="text" id="consult-county" required placeholder="e.g. Kiambu, Nakuru, Uasin Gishu" />
-            </label>
-            <label>
-              Select Agronomist / Specialist
-              <select id="consult-specialist-assignee">
-                <option value="">Any Available Agronomist (Fastest Response)</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="form-row-2">
-            <label>
-              Preferred Consultation Mode
-              <select id="consult-mode" required>
-                <option value="chat">WhatsApp Chat (Fastest &bull; Real-time photo &amp; audio review)</option>
-                <option value="call">Phone Call (Direct agronomy voice advisory)</option>
-                <option value="appointment">On-Farm Physical Visit / Inspection</option>
-                <option value="video">Virtual Video Consultation</option>
-              </select>
-            </label>
-            <label>
-              Urgency Level
-              <select id="consult-urgency">
-                <option value="urgent">High Urgency (&lt; 2 hours response for active pest/blight outbreaks)</option>
-                <option value="standard" selected>Standard (Within 24 hours)</option>
-                <option value="scheduled">Scheduled Planning / Seasonal Calendar</option>
-              </select>
-            </label>
-          </div>
-
-          <label>
-            Clinical Case Details &amp; Field History
-            <textarea id="consult-details" rows="5" required placeholder="Share the crop issue, symptoms, and urgency. If you ran a diagnosis in Step 1, details are auto-populated here."></textarea>
-          </label>
-
-          <div class="consult-form-actions">
-            <button class="btn btn-primary btn-submit-consult" type="submit">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              <span>Submit Specialist Dispatch Request</span>
-            </button>
-            <a id="consult-direct-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-rx btn-consult-wa" hidden>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span id="consult-wa-btn-text">Consult Specialist on WhatsApp</span>
+    <!-- Immediate Agronomy Assistance Card -->
+    <section class="smart-panel reveal soon-support-panel">
+      <div class="soon-support-content">
+        <div class="support-text-col">
+          <span class="eyebrow" style="color: #2d6a4f;">Immediate Field Support Available Today</span>
+          <h2>Need Agronomic Advisory or Greenhouse Consultancy Right Now?</h2>
+          <p>
+            While the automated Smart Assist portal undergoes final calibration, our full team of professional agronomists, soil scientists, and greenhouse engineers is actively on the ground serving farmers across Kenya.
+          </p>
+          <div class="soon-cta-actions">
+            <a class="btn btn-primary whatsapp-btn" href="https://wa.me/254798981760?text=Hello%20Kilimonet%2C%20I%20need%20agronomic%20support%20for%20my%20farm." target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" style="vertical-align:middle;margin-right:6px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Chat with Agronomist on WhatsApp</span>
+            </a>
+            <a href="tel:+254798981760" class="btn btn-secondary">
+              <span>Call +254 798 981 760</span>
+            </a>
+            <a href="intake.html" class="btn btn-secondary">
+              <span>Submit Project Intake</span>
             </a>
           </div>
-        </form>
-        <p id="consult-feedback" class="feedback" hidden></p>
+        </div>
       </div>
     </section>
 
-    <section class="smart-grid">
-      <article class="smart-panel reveal">
-        <h2>Advisories & Alerts</h2>
-        <div id="advisory-list" class="stack-list"></div>
-      </article>
+    <!-- Early Access Notification Form -->
+    <section class="smart-panel reveal soon-notify-panel">
+      <div class="notify-form-header">
+        <h2>Get Notified When Smart Assist Launches</h2>
+        <p class="panel-subtitle">Register to receive early access updates and launch announcements directly to your WhatsApp or email.</p>
+      </div>
 
-      <article class="smart-panel reveal ops-portal-preview-card" id="ops-portal-card">
-        <div class="ops-card-badge">Staff &amp; Partner Operations</div>
-        <h2>Specialist &amp; Admin Operations Portal</h2>
-        <p class="ops-card-desc">
-          Unified secure portal for registered Agrovet Hubs, certified Pathologists, and Agronomy Specialists to manage stock inventories, broadcast regional alerts, and review farmer clinical tickets.
-        </p>
-        <div class="ops-features-list">
-          <div class="ops-feature-item">
-            <span class="ops-feat-icon">📦</span>
-            <div>
-              <strong>Agrovet Inventory Editor</strong>
-              <small>Live catalog management, stock levels &amp; pricing</small>
-            </div>
-          </div>
-          <div class="ops-feature-item">
-            <span class="ops-feat-icon">📢</span>
-            <div>
-              <strong>Advisory Publisher</strong>
-              <small>Broadcast regional crop disease warnings &amp; spray advisories</small>
-            </div>
-          </div>
-          <div class="ops-feature-item">
-            <span class="ops-feat-icon">📋</span>
-            <div>
-              <strong>Farmer Inquiry Reviewer</strong>
-              <small>Review clinical tickets, attached diagnoses &amp; leaf photos</small>
-            </div>
-          </div>
+      <form id="smart-notify-form" class="contact-form full" action="#" method="post" novalidate>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        
+        <div class="form-row-2">
+          <label>
+            Full Name
+            <input type="text" id="notify-name" name="name" required />
+          </label>
+          <label>
+            WhatsApp Phone Number
+            <input type="tel" id="notify-phone" name="phone" required />
+          </label>
         </div>
 
-        <div class="ops-card-footer">
-          <button type="button" class="btn btn-primary btn-portal-launch" id="btn-launch-portal">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Launch Operations Portal</span>
+        <div class="form-row-2">
+          <label>
+            County / Location in Kenya
+            <input type="text" id="notify-county" name="county" required />
+          </label>
+          <label>
+            I Am A:
+            <select id="notify-role" name="role" required>
+              <option value="commercial-farmer">Commercial / Smallholder Farmer</option>
+              <option value="greenhouse-operator">Greenhouse Operator</option>
+              <option value="agrovet-owner">Agrovet Dealer / Stockist</option>
+              <option value="agronomist">Agronomist / Field Officer</option>
+              <option value="partner">Agribusiness Partner / Investor</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Crops of Interest / Farming Notes (Optional)
+          <textarea id="notify-notes" name="notes" rows="3"></textarea>
+        </label>
+
+        <div class="notify-form-actions">
+          <button type="submit" id="btn-notify-submit" class="btn btn-primary">
+            <span>Register for Launch Updates</span>
           </button>
-          <span id="portal-session-status" class="portal-status-tag">Demo: agrovetadmin / specialistadmin</span>
         </div>
-      </article>
+
+        <div id="notify-feedback" class="feedback" hidden role="status" aria-live="polite"></div>
+      </form>
     </section>
-
-    <!-- Refined Admin & Specialist Portal Modal -->
-    <div id="admin-portal-modal" class="portal-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="portal-modal-title">
-      <div class="portal-modal-dialog">
-        <div class="portal-modal-header">
-          <div class="portal-modal-header-text">
-            <div class="portal-header-tag-row">
-              <span class="portal-badge-pill">Internal Operations Gateway</span>
-              <span id="portal-role-badge" class="badge-role-pill" hidden>Specialist Admin</span>
-            </div>
-            <h3 id="portal-modal-title">Kilimonet Operations &amp; Specialist Portal</h3>
-          </div>
-          <button type="button" id="portal-modal-close" class="portal-modal-close-btn" aria-label="Close Operations Portal">&times;</button>
-        </div>
-
-        <div class="portal-modal-body">
-          <!-- Auth View (When Logged Out) -->
-          <div id="portal-auth-view">
-            <div class="portal-login-card">
-              <div class="portal-login-intro">
-                <h4>Sign In to Staff Operations</h4>
-                <p class="meta-text">Access is restricted to verified Agrovet partners and Kilimonet certified agronomy staff.</p>
-              </div>
-
-              <!-- Quick Demo Login Switcher Chips -->
-              <div class="demo-auth-box">
-                <span class="demo-auth-label">⚡ One-Click Demo Role Sign-In:</span>
-                <div class="demo-role-chips">
-                  <button type="button" class="demo-chip" data-user="agrovetadmin" data-pass="Agrovet@123">
-                    🏪 Agrovet Hub Admin
-                  </button>
-                  <button type="button" class="demo-chip" data-user="specialistadmin" data-pass="Specialist@123">
-                    🔬 Senior Agronomist Admin
-                  </button>
-                  <button type="button" class="demo-chip" data-user="systemadmin" data-pass="SysAdmin@123">
-                    ⚡ Master Operations Admin
-                  </button>
-                </div>
-              </div>
-
-              <form id="admin-login-form" class="contact-form full" action="#" method="post">
-                <div class="form-row-2">
-                  <label>
-                    Username
-                    <input type="text" id="admin-username" required placeholder="e.g. agrovetadmin" />
-                  </label>
-                  <label>
-                    Password
-                    <input type="password" id="admin-password" required placeholder="••••••••" />
-                  </label>
-                </div>
-                <div class="login-action-row">
-                  <button class="btn btn-primary" type="submit">Sign In to Dashboard</button>
-                </div>
-              </form>
-              <p id="admin-login-feedback" class="feedback" hidden></p>
-            </div>
-          </div>
-
-          <!-- Dashboard View (When Logged In) -->
-          <div id="portal-dashboard-view" hidden>
-            <div class="portal-subhead">
-              <div class="portal-user-info">
-                <span class="user-avatar-dot online"></span>
-                <span id="admin-role-label">Signed in as Administrator</span>
-              </div>
-              <button id="admin-logout" type="button" class="btn btn-secondary btn-sm-logout">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:2px"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                <span>Logout</span>
-              </button>
-            </div>
-
-            <!-- Portal Tabs: Inventory Editor | Advisory Publisher | Farmer Inquiry Reviewer -->
-            <div class="portal-tabs" role="tablist">
-              <button type="button" class="portal-tab active" data-portal-tab="inventory" id="tab-btn-inventory" role="tab" aria-selected="true">
-                <span>📦</span>
-                <span>Agrovet Inventory Editor</span>
-                <span class="tab-count" id="count-agrovets-badge">24</span>
-              </button>
-              <button type="button" class="portal-tab" data-portal-tab="advisories" id="tab-btn-advisories" role="tab" aria-selected="false">
-                <span>📢</span>
-                <span>Advisory Publisher</span>
-                <span class="tab-count" id="count-advisories-badge">1</span>
-              </button>
-              <button type="button" class="portal-tab" data-portal-tab="inquiries" id="tab-btn-inquiries" role="tab" aria-selected="false">
-                <span>📋</span>
-                <span>Farmer Inquiry Reviewer</span>
-                <span class="tab-count tab-count-highlight" id="count-inquiries-badge">3</span>
-              </button>
-            </div>
-
-            <!-- TAB 1: Agrovet Inventory Editor -->
-            <section id="panel-inventory-editor" class="portal-tab-panel active">
-              <div class="panel-section-header">
-                <div>
-                  <h4>Agrovet Catalog &amp; Real-time Stock Manager</h4>
-                  <p class="meta-text">Select an agrovet to inspect inventory, update unit prices (KES), adjust in-stock quantities, or add new chemical formulations.</p>
-                </div>
-              </div>
-
-              <div class="inventory-controls-bar">
-                <label class="inventory-select-label" for="agrovet-select">
-                  <strong>Selected Agrovet Outlet:</strong>
-                </label>
-                <select id="agrovet-select" class="portal-select-lg"></select>
-              </div>
-
-              <!-- Live Inventory Table -->
-              <div class="inventory-table-wrap">
-                <table class="inventory-table">
-                  <thead>
-                    <tr>
-                      <th>Product Brand &amp; Spec</th>
-                      <th>Price (KES)</th>
-                      <th>In Stock</th>
-                      <th>Status</th>
-                      <th>Quick Stock Adjust</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="inventory-table-body">
-                    <!-- Populated dynamically -->
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Add / Update Product Form -->
-              <div class="inventory-add-card">
-                <h5>Add or Update Agrochemical / Input in Selected Agrovet:</h5>
-                <form id="agrovet-stock-form" class="contact-form" action="#" method="post">
-                  <div class="form-row-3">
-                    <label>
-                      Product Brand Name
-                      <input type="text" id="product-name" required placeholder="e.g. Coragen 200SC" />
-                    </label>
-                    <label>
-                      Stock Quantity (Units)
-                      <input type="number" id="product-stock" min="0" required placeholder="e.g. 25" />
-                    </label>
-                    <label>
-                      Price per Unit (KES)
-                      <input type="number" id="product-price" min="0" step="10" required placeholder="e.g. 1850" />
-                    </label>
-                  </div>
-                  <button class="btn btn-primary" type="submit">Save Product to Inventory</button>
-                </form>
-              </div>
-
-              <!-- Agrovet Stock Notice Form -->
-              <div class="inventory-notice-card">
-                <h5>Publish Local Agrovet Stock Announcement:</h5>
-                <form id="agrovet-notice-form" class="contact-form" action="#" method="post">
-                  <div class="form-row-2">
-                    <label>
-                      Notice Title
-                      <input type="text" id="agrovet-notice-title" required placeholder="e.g. Fresh stock of certified Mancozeb arrived" />
-                    </label>
-                    <label>
-                      Notice Message
-                      <input type="text" id="agrovet-notice-body" required placeholder="Special discounts on 1kg packs for registered farmers." />
-                    </label>
-                  </div>
-                  <button class="btn btn-secondary" type="submit">Broadcast Notice to Directory</button>
-                </form>
-              </div>
-            </section>
-
-            <!-- TAB 2: Advisory Publisher -->
-            <section id="panel-advisory-publisher" class="portal-tab-panel" hidden>
-              <div class="panel-section-header">
-                <div>
-                  <h4>Pathology Advisory &amp; Disease Alert Publisher</h4>
-                  <p class="meta-text">Publish certified crop protection notices broadcast to farmers and agrovets across target counties.</p>
-                </div>
-              </div>
-
-              <form id="specialist-advisory-form" class="contact-form full" action="#" method="post">
-                <div class="form-row-2">
-                  <label>
-                    Advisory Headline
-                    <input type="text" id="specialist-advisory-title" required placeholder="e.g. Fall Armyworm High-Risk Alert in Trans Nzoia &amp; Uasin Gishu" />
-                  </label>
-                  <label>
-                    Target County / Agricultural Region
-                    <select id="specialist-advisory-region">
-                      <option value="National">National (All Counties)</option>
-                      <option value="Central &amp; Mt. Kenya">Central &amp; Mt. Kenya (Kiambu, Nyeri, Muranga, Kirinyaga)</option>
-                      <option value="Rift Valley Breadbasket">Rift Valley Breadbasket (Nakuru, Uasin Gishu, Trans Nzoia)</option>
-                      <option value="Western &amp; Nyanza">Western &amp; Nyanza (Kakamega, Bungoma, Kisumu)</option>
-                      <option value="Eastern &amp; Coastal">Eastern &amp; Coastal (Machakos, Embu, Meru, Kilifi)</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="form-row-2">
-                  <label>
-                    Publishing Authority / Specialist
-                    <select id="specialist-advisory-author">
-                      <option value="Senior Plant Pathologist, Kilimonet">Senior Plant Pathologist</option>
-                      <option value="IPM &amp; Crop Protection Lead">IPM &amp; Crop Protection Lead</option>
-                      <option value="Soil &amp; Plant Nutrition Lead">Soil &amp; Plant Nutrition Lead</option>
-                      <option value="Irrigation &amp; Systems Lead">Irrigation &amp; Systems Lead</option>
-                      <option value="Field Inspection Specialist">Field Inspection Specialist</option>
-                    </select>
-                  </label>
-                  <label>
-                    Alert Priority Level
-                    <select id="specialist-advisory-priority">
-                      <option value="Urgent">🚨 Critical Outbreak Alert</option>
-                      <option value="Advisory" selected>⚠️ Standard Seasonal Advisory</option>
-                      <option value="Notice">ℹ️ Informational Practice Note</option>
-                    </select>
-                  </label>
-                </div>
-                <label>
-                  Clinical Recommendations &amp; Field Instructions
-                  <textarea id="specialist-advisory-body" rows="4" required placeholder="Detail specific scouting intervals, active ingredients for tank rotation (e.g. Chlorantraniliprole vs Emamectin Benzoate), and safety withholding rules."></textarea>
-                </label>
-                <button class="btn btn-primary" type="submit">Broadcast Pathology Advisory</button>
-              </form>
-
-              <!-- Active Advisories Manager List -->
-              <div class="advisories-manager-wrap">
-                <h5>Active Published Advisories:</h5>
-                <div id="portal-advisories-list" class="portal-cards-list"></div>
-              </div>
-            </section>
-
-            <!-- TAB 3: Farmer Inquiry Reviewer -->
-            <section id="panel-inquiry-reviewer" class="portal-tab-panel" hidden>
-              <div class="panel-section-header">
-                <div>
-                  <h4>Farmer Consultation Inquiry &amp; Dispatch Reviewer</h4>
-                  <p class="meta-text">Review clinical consultation tickets dispatched by smallholders with attached AI pathogen diagnoses, laboratory specimen photos, and farmer contacts.</p>
-                </div>
-                <div class="inquiry-filter-buttons">
-                  <button type="button" class="btn-inquiry-filter active" data-filter="all">All (<span id="inq-count-all">0</span>)</button>
-                  <button type="button" class="btn-inquiry-filter" data-filter="pending">Pending (<span id="inq-count-pending">0</span>)</button>
-                  <button type="button" class="btn-inquiry-filter" data-filter="resolved">Resolved (<span id="inq-count-resolved">0</span>)</button>
-                </div>
-              </div>
-
-              <!-- List of Farmer Consultation Inquiries -->
-              <div id="portal-inquiries-list" class="portal-inquiries-grid">
-                <!-- Dynamically rendered -->
-              </div>
-            </section>
-
-            <p id="admin-feedback" class="feedback" hidden></p>
-          </div>
-        </div>
-
-        <div class="portal-modal-footer">
-          <button type="button" class="btn btn-secondary" id="portal-modal-dismiss-btn">Close Portal</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Agronomic Clinical Prescription Export & Print Modal -->
-    <div id="rx-modal" class="rx-modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="rx-modal-title">
-      <div class="rx-modal-dialog">
-        <div class="rx-modal-header">
-          <div class="rx-modal-header-text">
-            <span class="rx-badge-pill">Official Agronomic Rx Slip</span>
-            <h3 id="rx-modal-title">Kilimonet Clinical Prescription &amp; Field Order</h3>
-          </div>
-          <button type="button" id="rx-modal-close" class="rx-modal-close-btn" aria-label="Close Prescription Slip">&times;</button>
-        </div>
-
-        <div class="rx-modal-body" id="rx-printable-content">
-          <!-- Rendered dynamically -->
-        </div>
-
-        <div class="rx-modal-footer">
-          <button type="button" class="btn btn-secondary" id="rx-modal-dismiss-btn">Close</button>
-          <button type="button" class="btn btn-primary btn-print-action" id="rx-modal-print-btn">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-            <span>Print / Save as PDF</span>
-          </button>
-          <a id="rx-modal-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-rx">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            <span>Send via WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
   </main>
 
   <section class="intake-rail">
@@ -776,7 +264,7 @@
     <p class="copyright">Kilimonet Integrated Agrisystems Limited<br />Private Limited Company Registered in Kenya<br />Company No: PVT-5M1LBLD2<br />Nairobi, Kenya<br /><br />© 2026 Kilimonet. All Rights Reserved.</p>
   </footer>
 
-  <!-- Floating WhatsApp Widget (Bottom-Right of View) -->
+  <!-- Floating WhatsApp Widget -->
   <a href="https://wa.me/254798981760?text=Hello%20Kilimonet%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="whatsapp-float-widget" target="_blank" rel="noopener noreferrer" aria-label="Chat with Kilimonet on WhatsApp">
     <span class="whatsapp-float-icon-wrap">
       <svg class="whatsapp-float-icon" viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">

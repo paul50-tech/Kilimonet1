@@ -1,5 +1,5 @@
-// Kilimonet High-Performance Service Worker v6
-const CACHE_NAME = 'kilimonet-cache-v6';
+// Kilimonet High-Performance Service Worker v7
+const CACHE_NAME = 'kilimonet-cache-v7';
 
 const STATIC_ASSETS = [
   '/',
