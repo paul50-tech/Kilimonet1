@@ -1,15 +1,19 @@
-const SMART_STORAGE_KEY = 'kili_smart_data_v1';
+const SMART_STORAGE_KEY = 'kili_smart_data_v5';
 const SMART_RATE_LIMIT_KEY = 'kili_smart_rate_limit_v1';
 
 const DEFAULT_DATA = {
   agrovets: [
+    // --- 1. KIAMBU COUNTY ---
     {
       id: 'ag-juja',
       name: 'Juja Agrovet Hub',
       county: 'Kiambu',
-      lat: -1.108,
-      lng: 37.016,
+      town: 'Juja',
+      address: 'Thika Superhighway, Near Juja Flyover',
+      lat: -1.1080,
+      lng: 37.0160,
       phone: '+254700100001',
+      verified: true,
       products: [
         { name: 'Belt 480SC', stock: 18, price: 1650 },
         { name: 'Coragen 20SC', stock: 14, price: 1850 },
@@ -27,12 +31,61 @@ const DEFAULT_DATA = {
       notices: []
     },
     {
+      id: 'ag-thika',
+      name: 'Thika Central Farmers Agrochem',
+      county: 'Kiambu',
+      town: 'Thika',
+      address: 'Commercial Street, Opp. Thika Main Stage',
+      lat: -1.0396,
+      lng: 37.0693,
+      phone: '+254722300001',
+      verified: true,
+      products: [
+        { name: 'Coragen 20SC', stock: 16, price: 1820 },
+        { name: 'Belt 480SC', stock: 20, price: 1640 },
+        { name: 'Ampligo 150ZC', stock: 18, price: 1400 },
+        { name: 'Score 250EC', stock: 15, price: 1550 },
+        { name: 'Ridomil Gold', stock: 30, price: 1460 },
+        { name: 'Infinito', stock: 12, price: 1980 },
+        { name: 'Mancozeb 80WP', stock: 45, price: 900 },
+        { name: 'Copper Oxychloride', stock: 25, price: 850 },
+        { name: 'Neem Bio-Pesticide', stock: 20, price: 1020 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-limuru',
+      name: 'Limuru Highland Crop Care',
+      county: 'Kiambu',
+      town: 'Limuru',
+      address: 'Market Street, Near Limuru Tea Board',
+      lat: -1.1130,
+      lng: 36.6430,
+      phone: '+254722300002',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 35, price: 1450 },
+        { name: 'Mancozeb 80WP', stock: 50, price: 890 },
+        { name: 'Ortiva Top', stock: 14, price: 1720 },
+        { name: 'Copper Oxychloride', stock: 30, price: 840 },
+        { name: 'Nemathorin 150G', stock: 10, price: 2350 },
+        { name: 'Belt 480SC', stock: 15, price: 1660 },
+        { name: 'Foliar Plus', stock: 40, price: 600 }
+      ],
+      notices: []
+    },
+
+    // --- 2. NAKURU COUNTY ---
+    {
       id: 'ag-nakuru',
       name: 'Nakuru Farm Inputs Centre',
       county: 'Nakuru',
-      lat: -0.303,
-      lng: 36.08,
+      town: 'Nakuru Town',
+      address: 'Kenyatta Avenue, Opposite Nakuru Farmers House',
+      lat: -0.3031,
+      lng: 36.0800,
       phone: '+254700100002',
+      verified: true,
       products: [
         { name: 'Ridomil Gold', stock: 20, price: 1470 },
         { name: 'Mancozeb 80WP', stock: 32, price: 910 },
@@ -47,12 +100,56 @@ const DEFAULT_DATA = {
       notices: []
     },
     {
+      id: 'ag-naivasha',
+      name: 'Naivasha Agri-Flora & Input Store',
+      county: 'Nakuru',
+      town: 'Naivasha',
+      address: 'Moi South Lake Road Junction, Naivasha',
+      lat: -0.7172,
+      lng: 36.4310,
+      phone: '+254722400001',
+      verified: true,
+      products: [
+        { name: 'Ortiva Top', stock: 22, price: 1730 },
+        { name: 'Dynamec 1.8EC', stock: 20, price: 1190 },
+        { name: 'Coragen 20SC', stock: 18, price: 1840 },
+        { name: 'Ridomil Gold', stock: 25, price: 1460 },
+        { name: 'Belt 480SC', stock: 16, price: 1650 },
+        { name: 'Actara 25WG', stock: 24, price: 970 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-molo',
+      name: 'Molo Seedlings & Fungicides Depot',
+      county: 'Nakuru',
+      town: 'Molo',
+      address: 'Molo-Olenguruone Road, Near Molo Market',
+      lat: -0.2483,
+      lng: 35.7320,
+      phone: '+254722400002',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 40, price: 1440 },
+        { name: 'Mancozeb 80WP', stock: 60, price: 880 },
+        { name: 'Infinito', stock: 16, price: 1940 },
+        { name: 'Nemathorin 150G', stock: 12, price: 2380 },
+        { name: 'Copper Oxychloride', stock: 35, price: 850 }
+      ],
+      notices: []
+    },
+
+    // --- 3. UASIN GISHU COUNTY ---
+    {
       id: 'ag-eldoret',
       name: 'Eldoret Crop Care Agrovet',
       county: 'Uasin Gishu',
-      lat: 0.52,
-      lng: 35.269,
+      town: 'Eldoret',
+      address: 'Ronald Ngala Street, Eldoret CBD',
+      lat: 0.5200,
+      lng: 35.2690,
       phone: '+254700100003',
+      verified: true,
       products: [
         { name: 'Ampligo 150ZC', stock: 26, price: 1410 },
         { name: 'Belt 480SC', stock: 19, price: 1630 },
@@ -65,45 +162,714 @@ const DEFAULT_DATA = {
         { name: 'Calcium Booster', stock: 20, price: 710 }
       ],
       notices: []
-    }
-  ],
-  specialists: [
-    {
-      id: 'sp-1',
-      name: 'Dr. Mercy Njoroge',
-      specialization: 'Crop Disease & Pest Management',
-      availability: 'available',
-      county: 'Kiambu',
-      phone: '+254711200001'
     },
     {
-      id: 'sp-2',
-      name: 'Eng. Daniel Kiprotich',
-      specialization: 'Irrigation & Greenhouse Systems',
-      availability: 'available',
-      county: 'Nakuru',
-      phone: '+254711200002'
+      id: 'ag-turbo',
+      name: 'Turbo Grain & Input Suppliers',
+      county: 'Uasin Gishu',
+      town: 'Turbo',
+      address: 'Eldoret-Malaba Highway, Turbo Centre',
+      lat: 0.6330,
+      lng: 35.0490,
+      phone: '+254722500001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 25, price: 1620 },
+        { name: 'Ampligo 150ZC', stock: 22, price: 1390 },
+        { name: 'Coragen 20SC', stock: 14, price: 1830 },
+        { name: 'Mancozeb 80WP', stock: 40, price: 890 }
+      ],
+      notices: []
+    },
+
+    // --- 4. TRANS NZOIA COUNTY ---
+    {
+      id: 'ag-kitale',
+      name: 'Kitale Farmers Super-Agrovet',
+      county: 'Trans Nzoia',
+      town: 'Kitale',
+      address: 'Mak Asembo Road, Opp. Kitale Bus Park',
+      lat: 1.0167,
+      lng: 35.0067,
+      phone: '+254722600001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 35, price: 1610 },
+        { name: 'Coragen 20SC', stock: 25, price: 1810 },
+        { name: 'Ampligo 150ZC', stock: 30, price: 1390 },
+        { name: 'Mancozeb 80WP', stock: 65, price: 870 },
+        { name: 'Ridomil Gold', stock: 28, price: 1450 },
+        { name: 'Foliar Plus', stock: 50, price: 600 }
+      ],
+      notices: []
     },
     {
-      id: 'sp-3',
-      name: 'Dr. Beatrice Achieng',
-      specialization: 'Soil Fertility & Plant Nutrition',
-      availability: 'busy',
+      id: 'ag-kiminini',
+      name: 'Kiminini Agri-Point & Seed Centre',
+      county: 'Trans Nzoia',
+      town: 'Kiminini',
+      address: 'Kitale-Webuye Road, Kiminini Junction',
+      lat: 0.9020,
+      lng: 34.9120,
+      phone: '+254722600002',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 20, price: 1630 },
+        { name: 'Coragen 20SC', stock: 16, price: 1840 },
+        { name: 'Ampligo 150ZC', stock: 24, price: 1410 },
+        { name: 'Mancozeb 80WP', stock: 35, price: 900 }
+      ],
+      notices: []
+    },
+
+    // --- 5. MERU COUNTY ---
+    {
+      id: 'ag-meru',
+      name: 'Meru Central Agri-Inputs Store',
+      county: 'Meru',
+      town: 'Meru Town',
+      address: 'Tom Mboya Street, Near Meru Municipal Market',
+      lat: 0.0463,
+      lng: 37.6559,
+      phone: '+254722700001',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 30, price: 1460 },
+        { name: 'Ortiva Top', stock: 20, price: 1740 },
+        { name: 'Coragen 20SC', stock: 18, price: 1830 },
+        { name: 'Copper Oxychloride', stock: 32, price: 860 },
+        { name: 'Actara 25WG', stock: 22, price: 960 },
+        { name: 'Foliar Plus', stock: 40, price: 610 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-maua',
+      name: 'Maua Tea & Horticultural Agrovet',
+      county: 'Meru',
+      town: 'Maua',
+      address: 'Maua Main Street, Maua Market',
+      lat: 0.2312,
+      lng: 37.9400,
+      phone: '+254722700002',
+      verified: true,
+      products: [
+        { name: 'Copper Oxychloride', stock: 28, price: 870 },
+        { name: 'Ridomil Gold', stock: 22, price: 1480 },
+        { name: 'Mancozeb 80WP', stock: 38, price: 910 },
+        { name: 'Ortiva Top', stock: 12, price: 1750 }
+      ],
+      notices: []
+    },
+
+    // --- 6. NYERI COUNTY ---
+    {
+      id: 'ag-karatina',
+      name: 'Karatina Farmers Hub & Seeds',
+      county: 'Nyeri',
+      town: 'Karatina',
+      address: 'Near Karatina Open Air Market, Commercial St',
+      lat: -0.4815,
+      lng: 37.1245,
+      phone: '+254722800001',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 35, price: 1450 },
+        { name: 'Mancozeb 80WP', stock: 48, price: 890 },
+        { name: 'Ortiva Top', stock: 18, price: 1730 },
+        { name: 'Coragen 20SC', stock: 15, price: 1840 },
+        { name: 'Belt 480SC', stock: 20, price: 1650 },
+        { name: 'Calcium Booster', stock: 25, price: 690 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-nyeri',
+      name: 'Nyeri Town Agrochemicals & Seeds',
+      county: 'Nyeri',
+      town: 'Nyeri Town',
+      address: 'Kimathi Way, Opp. Nyeri Post Office',
+      lat: -0.4200,
+      lng: 36.9476,
+      phone: '+254722800002',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 26, price: 1470 },
+        { name: 'Copper Oxychloride', stock: 30, price: 860 },
+        { name: 'Score 250EC', stock: 16, price: 1540 },
+        { name: 'Ortiva Top', stock: 14, price: 1750 },
+        { name: 'Neem Bio-Pesticide', stock: 18, price: 1040 }
+      ],
+      notices: []
+    },
+
+    // --- 7. KIRINYAGA COUNTY ---
+    {
+      id: 'ag-mwea',
+      name: 'Mwea Rice & Horticulture Farm Inputs',
+      county: 'Kirinyaga',
+      town: 'Wanguru (Mwea)',
+      address: 'Nairobi-Embu Highway, Wanguru Town',
+      lat: -0.6333,
+      lng: 37.3500,
+      phone: '+254722900001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 28, price: 1630 },
+        { name: 'Coragen 20SC', stock: 24, price: 1820 },
+        { name: 'Ortiva Top', stock: 20, price: 1720 },
+        { name: 'Score 250EC', stock: 18, price: 1530 },
+        { name: 'Actara 25WG', stock: 25, price: 950 },
+        { name: 'Foliar Plus', stock: 45, price: 600 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-kerugoya',
+      name: 'Kerugoya Central Agrovet',
+      county: 'Kirinyaga',
+      town: 'Kerugoya',
+      address: 'Hospital Road, Kerugoya CBD',
+      lat: -0.4989,
+      lng: 37.2803,
+      phone: '+254722900002',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 24, price: 1460 },
+        { name: 'Coragen 20SC', stock: 15, price: 1830 },
+        { name: 'Ortiva Top', stock: 16, price: 1740 },
+        { name: 'Mancozeb 80WP', stock: 40, price: 900 }
+      ],
+      notices: []
+    },
+
+    // --- 8. MURANG\'A COUNTY ---
+    {
+      id: 'ag-kenol',
+      name: 'Kenol Farmers Agrochem',
+      county: "Murang'a",
+      town: 'Kenol',
+      address: 'Kenol Junction, Near Makuyu Turnoff',
+      lat: -0.9850,
+      lng: 37.1180,
+      phone: '+254723000001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 22, price: 1640 },
+        { name: 'Coragen 20SC', stock: 18, price: 1830 },
+        { name: 'Ridomil Gold', stock: 26, price: 1470 },
+        { name: 'Mancozeb 80WP', stock: 42, price: 910 },
+        { name: 'Copper Oxychloride', stock: 28, price: 860 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-muranga',
+      name: "Murang'a Central Agri-Depot",
+      county: "Murang'a",
+      town: "Murang'a Town",
+      address: "Uhuru Highway, Opp. Murang'a County Offices",
+      lat: -0.7210,
+      lng: 37.1526,
+      phone: '+254723000002',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 25, price: 1460 },
+        { name: 'Ortiva Top', stock: 15, price: 1750 },
+        { name: 'Copper Oxychloride', stock: 30, price: 850 },
+        { name: 'Foliar Plus', stock: 35, price: 610 }
+      ],
+      notices: []
+    },
+
+    // --- 9. MACHAKOS COUNTY ---
+    {
+      id: 'ag-machakos',
+      name: 'Machakos Pioneer Agrovet',
+      county: 'Machakos',
+      town: 'Machakos Town',
+      address: 'Syokimau Road, Near Machakos Bus Park',
+      lat: -1.5177,
+      lng: 37.2634,
+      phone: '+254723100001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 20, price: 1650 },
+        { name: 'Coragen 20SC', stock: 16, price: 1840 },
+        { name: 'Ampligo 150ZC', stock: 22, price: 1420 },
+        { name: 'Ridomil Gold', stock: 20, price: 1480 },
+        { name: 'Neem Bio-Pesticide', stock: 22, price: 1040 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-matuu',
+      name: 'Matuu Yatta Irrigation & Input Hub',
+      county: 'Machakos',
+      town: 'Matuu',
+      address: 'Thika-Garissa Road, Matuu Centre',
+      lat: -1.1440,
+      lng: 37.5410,
+      phone: '+254723100002',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 26, price: 1640 },
+        { name: 'Coragen 20SC', stock: 20, price: 1830 },
+        { name: 'Ortiva Top', stock: 18, price: 1730 },
+        { name: 'Dynamec 1.8EC', stock: 15, price: 1210 },
+        { name: 'Mancozeb 80WP', stock: 35, price: 920 }
+      ],
+      notices: []
+    },
+
+    // --- 10. NYANDARUA COUNTY ---
+    {
+      id: 'ag-olkalou',
+      name: 'Ol Kalou Potato & Veg Inputs Centre',
+      county: 'Nyandarua',
+      town: 'Ol Kalou',
+      address: 'Ol Kalou Town Centre, Near Railway Station',
+      lat: -0.2740,
+      lng: 36.3790,
+      phone: '+254723200001',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 45, price: 1440 },
+        { name: 'Mancozeb 80WP', stock: 65, price: 880 },
+        { name: 'Infinito', stock: 20, price: 1920 },
+        { name: 'Ortiva Top', stock: 15, price: 1730 },
+        { name: 'Nemathorin 150G', stock: 16, price: 2350 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-engineer',
+      name: 'Engineer Kinangop Agrovet',
+      county: 'Nyandarua',
+      town: 'Engineer',
+      address: 'Kinangop Highway, Engineer Town',
+      lat: -0.5840,
+      lng: 36.5780,
+      phone: '+254723200002',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 38, price: 1450 },
+        { name: 'Mancozeb 80WP', stock: 55, price: 890 },
+        { name: 'Copper Oxychloride', stock: 32, price: 850 },
+        { name: 'Calcium Booster', stock: 24, price: 700 }
+      ],
+      notices: []
+    },
+
+    // --- 11. BUNGOMA COUNTY ---
+    {
+      id: 'ag-bungoma',
+      name: 'Bungoma Farmers Agro-Vet Hub',
+      county: 'Bungoma',
+      town: 'Bungoma Town',
+      address: 'Moi Avenue, Opp. Bungoma County Hospital',
+      lat: 0.5695,
+      lng: 34.5584,
+      phone: '+254723300001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 30, price: 1620 },
+        { name: 'Coragen 20SC', stock: 22, price: 1820 },
+        { name: 'Ampligo 150ZC', stock: 28, price: 1400 },
+        { name: 'Mancozeb 80WP', stock: 45, price: 890 },
+        { name: 'Foliar Plus', stock: 40, price: 620 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-webuye',
+      name: 'Webuye Sugar & Crop Care',
+      county: 'Bungoma',
+      town: 'Webuye',
+      address: 'Eldoret-Malaba Highway, Webuye Junction',
+      lat: 0.6120,
+      lng: 34.7700,
+      phone: '+254723300002',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 24, price: 1630 },
+        { name: 'Ampligo 150ZC', stock: 20, price: 1410 },
+        { name: 'Coragen 20SC', stock: 16, price: 1840 }
+      ],
+      notices: []
+    },
+
+    // --- 12. KAKAMEGA COUNTY ---
+    {
+      id: 'ag-kakamega',
+      name: 'Kakamega Agri-World Chem',
+      county: 'Kakamega',
+      town: 'Kakamega Town',
+      address: 'Canon Awori Street, Kakamega CBD',
+      lat: 0.2827,
+      lng: 34.7519,
+      phone: '+254723400001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 28, price: 1630 },
+        { name: 'Coragen 20SC', stock: 20, price: 1830 },
+        { name: 'Ampligo 150ZC', stock: 25, price: 1410 },
+        { name: 'Ridomil Gold', stock: 22, price: 1470 },
+        { name: 'Mancozeb 80WP', stock: 35, price: 900 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-mumias',
+      name: 'Mumias Western Farm Supplies',
+      county: 'Kakamega',
+      town: 'Mumias',
+      address: 'Kakamega-Bungoma Road, Mumias Town',
+      lat: 0.3340,
+      lng: 34.4870,
+      phone: '+254723400002',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 22, price: 1640 },
+        { name: 'Ampligo 150ZC', stock: 18, price: 1420 },
+        { name: 'Coragen 20SC', stock: 14, price: 1850 }
+      ],
+      notices: []
+    },
+
+    // --- 13. KISUMU COUNTY ---
+    {
+      id: 'ag-kisumu',
+      name: 'Kisumu Lakeside Agri-Supply',
       county: 'Kisumu',
-      phone: '+254711200003'
+      town: 'Kisumu City',
+      address: 'Oginga Odinga Street, Opp. Jubilee Market',
+      lat: -0.0917,
+      lng: 34.7680,
+      phone: '+254723500001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 25, price: 1630 },
+        { name: 'Coragen 20SC', stock: 18, price: 1830 },
+        { name: 'Ortiva Top', stock: 16, price: 1740 },
+        { name: 'Score 250EC', stock: 14, price: 1540 },
+        { name: 'Mancozeb 80WP', stock: 30, price: 910 },
+        { name: 'Foliar Plus', stock: 35, price: 620 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-ahero',
+      name: 'Ahero Irrigation & Rice Agrovet',
+      county: 'Kisumu',
+      town: 'Ahero',
+      address: 'Kisumu-Kericho Highway, Ahero Junction',
+      lat: -0.1760,
+      lng: 34.9190,
+      phone: '+254723500002',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 26, price: 1620 },
+        { name: 'Coragen 20SC', stock: 20, price: 1820 },
+        { name: 'Score 250EC', stock: 15, price: 1530 },
+        { name: 'Ortiva Top', stock: 12, price: 1730 }
+      ],
+      notices: []
+    },
+
+    // --- 14. KISII COUNTY ---
+    {
+      id: 'ag-kisii',
+      name: 'Kisii Highland Agrochem & Seeds',
+      county: 'Kisii',
+      town: 'Kisii Town',
+      address: 'Hospital Road, Near Kisii Central Market',
+      lat: -0.6817,
+      lng: 34.7667,
+      phone: '+254723600001',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 28, price: 1470 },
+        { name: 'Mancozeb 80WP', stock: 45, price: 900 },
+        { name: 'Copper Oxychloride', stock: 30, price: 860 },
+        { name: 'Ortiva Top', stock: 16, price: 1740 },
+        { name: 'Belt 480SC', stock: 18, price: 1650 },
+        { name: 'Calcium Booster', stock: 20, price: 710 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-ogembo',
+      name: 'Ogembo Banana & Veg Input Centre',
+      county: 'Kisii',
+      town: 'Ogembo',
+      address: 'Kisii-Kilgoris Road, Ogembo Market',
+      lat: -0.8040,
+      lng: 34.7230,
+      phone: '+254723600002',
+      verified: true,
+      products: [
+        { name: 'Copper Oxychloride', stock: 26, price: 870 },
+        { name: 'Ridomil Gold', stock: 20, price: 1480 },
+        { name: 'Mancozeb 80WP', stock: 32, price: 910 }
+      ],
+      notices: []
+    },
+
+    // --- 15. KERICHO COUNTY ---
+    {
+      id: 'ag-kericho',
+      name: 'Kericho Green Leaf Agrovet',
+      county: 'Kericho',
+      town: 'Kericho Town',
+      address: 'Temple Road, Opp. Kericho Tea Hotel',
+      lat: -0.3692,
+      lng: 35.2863,
+      phone: '+254723700001',
+      verified: true,
+      products: [
+        { name: 'Copper Oxychloride', stock: 35, price: 850 },
+        { name: 'Ridomil Gold', stock: 25, price: 1460 },
+        { name: 'Score 250EC', stock: 18, price: 1530 },
+        { name: 'Mancozeb 80WP', stock: 40, price: 890 },
+        { name: 'Foliar Plus', stock: 35, price: 610 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-litein',
+      name: 'Litein Agri-Hub',
+      county: 'Kericho',
+      town: 'Litein',
+      address: 'Kericho-Sotik Road, Litein Town Centre',
+      lat: -0.5840,
+      lng: 35.1910,
+      phone: '+254723700002',
+      verified: true,
+      products: [
+        { name: 'Copper Oxychloride', stock: 28, price: 860 },
+        { name: 'Ridomil Gold', stock: 20, price: 1470 },
+        { name: 'Mancozeb 80WP', stock: 30, price: 900 }
+      ],
+      notices: []
+    },
+
+    // --- 16. BOMET COUNTY ---
+    {
+      id: 'ag-bomet',
+      name: 'Bomet Farm Care Centre',
+      county: 'Bomet',
+      town: 'Bomet Town',
+      address: 'Bomet-Narok Highway, Bomet CBD',
+      lat: -0.7813,
+      lng: 35.3416,
+      phone: '+254723800001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 22, price: 1640 },
+        { name: 'Coragen 20SC', stock: 16, price: 1830 },
+        { name: 'Ridomil Gold', stock: 24, price: 1470 },
+        { name: 'Mancozeb 80WP', stock: 36, price: 900 }
+      ],
+      notices: []
+    },
+
+    // --- 17. NAROK COUNTY ---
+    {
+      id: 'ag-narok',
+      name: 'Narok Wheat & Barley Agri-Depot',
+      county: 'Narok',
+      town: 'Narok Town',
+      address: 'Nairobi-Bomet Highway, Narok Town',
+      lat: -1.0783,
+      lng: 35.8601,
+      phone: '+254723900001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 35, price: 1620 },
+        { name: 'Ampligo 150ZC', stock: 30, price: 1390 },
+        { name: 'Coragen 20SC', stock: 24, price: 1820 },
+        { name: 'Score 250EC', stock: 20, price: 1530 },
+        { name: 'Mancozeb 80WP', stock: 50, price: 880 }
+      ],
+      notices: []
+    },
+
+    // --- 18. EMBU COUNTY ---
+    {
+      id: 'ag-embu',
+      name: 'Embu Central Agri-Input Store',
+      county: 'Embu',
+      town: 'Embu Town',
+      address: 'Kaunda Road, Opp. Embu Municipal Stadium',
+      lat: -0.5344,
+      lng: 37.4589,
+      phone: '+254724000001',
+      verified: true,
+      products: [
+        { name: 'Ridomil Gold', stock: 26, price: 1460 },
+        { name: 'Ortiva Top', stock: 18, price: 1730 },
+        { name: 'Coragen 20SC', stock: 16, price: 1830 },
+        { name: 'Copper Oxychloride', stock: 28, price: 860 },
+        { name: 'Actara 25WG', stock: 20, price: 960 }
+      ],
+      notices: []
+    },
+
+    // --- 19. KAJIADO COUNTY ---
+    {
+      id: 'ag-kitengela',
+      name: 'Kitengela Agrovet & Livestock Care',
+      county: 'Kajiado',
+      town: 'Kitengela',
+      address: 'Namanga Road, Near Kitengela Mall',
+      lat: -1.4740,
+      lng: 36.9600,
+      phone: '+254724100001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 22, price: 1650 },
+        { name: 'Coragen 20SC', stock: 18, price: 1840 },
+        { name: 'Dynamec 1.8EC', stock: 16, price: 1200 },
+        { name: 'Actara 25WG', stock: 20, price: 980 },
+        { name: 'Neem Bio-Pesticide', stock: 22, price: 1040 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-loitokitok',
+      name: 'Loitokitok Border Horticulture Supply',
+      county: 'Kajiado',
+      town: 'Loitokitok',
+      address: 'Kilimanjaro View Road, Loitokitok Town',
+      lat: -2.9300,
+      lng: 37.5100,
+      phone: '+254724100002',
+      verified: true,
+      products: [
+        { name: 'Coragen 20SC', stock: 20, price: 1850 },
+        { name: 'Ortiva Top', stock: 16, price: 1740 },
+        { name: 'Ridomil Gold', stock: 24, price: 1480 },
+        { name: 'Belt 480SC', stock: 18, price: 1660 }
+      ],
+      notices: []
+    },
+
+    // --- 20. KILIFI COUNTY ---
+    {
+      id: 'ag-kilifi',
+      name: 'Kilifi Coastal Agro-Vet Supplies',
+      county: 'Kilifi',
+      town: 'Kilifi Town',
+      address: 'Bofa Road, Near Kilifi Bridge Plaza',
+      lat: -3.6305,
+      lng: 39.8499,
+      phone: '+254724200001',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 20, price: 1660 },
+        { name: 'Coragen 20SC', stock: 14, price: 1860 },
+        { name: 'Neem Bio-Pesticide', stock: 28, price: 1020 },
+        { name: 'Copper Oxychloride', stock: 25, price: 880 },
+        { name: 'Foliar Plus', stock: 30, price: 630 }
+      ],
+      notices: []
+    },
+    {
+      id: 'ag-malindi',
+      name: 'Malindi Farm & Crop Depot',
+      county: 'Kilifi',
+      town: 'Malindi',
+      address: 'Lamu Road, Malindi CBD',
+      lat: -3.2192,
+      lng: 40.1169,
+      phone: '+254724200002',
+      verified: true,
+      products: [
+        { name: 'Belt 480SC', stock: 18, price: 1670 },
+        { name: 'Coragen 20SC', stock: 15, price: 1870 },
+        { name: 'Neem Bio-Pesticide', stock: 24, price: 1030 },
+        { name: 'Copper Oxychloride', stock: 22, price: 890 }
+      ],
+      notices: []
     }
   ],
+  specialists: [],
   advisories: [
     {
       id: 'adv-1',
-      source: 'Specialist',
+      source: 'Kilimonet Pathology Desk',
       title: 'Early blight & Tuta watch in humid zones',
       message: 'Scout tomatoes twice weekly and maintain sticky pheromone traps. Rogue infected lower leaves early.',
       region: 'National',
       createdAt: '2026-03-01'
     }
   ],
-  consultations: []
+  consultations: [
+    {
+      id: 'DISPATCH-842910',
+      name: 'John Kamau Ndegwa',
+      contact: '0722555123',
+      county: 'Kiambu (Limuru Sub-County)',
+      specialistId: null,
+      specialistName: 'Kilimonet Plant Pathology Desk',
+      mode: 'WhatsApp Chat',
+      urgency: 'High Urgency',
+      status: 'pending',
+      crop: 'Potatoes (Shangi)',
+      diagnosis: 'Late Blight (Phytophthora infestans)',
+      severity: 'Critical',
+      confidence: 96,
+      products: ['Ridomil Gold', 'Mancozeb 80WP', 'Ortiva Top'],
+      hasAttachedPhoto: true,
+      sampleSpecimenKey: 'potato-blight',
+      photoName: 'potato-blight-field-specimen.jpg',
+      details: '[AUTO-POPULATED DIAGNOSTIC CASE - REF: RX-KILI-2026-842910]\n• Crop Type & Stage: Potatoes (Vegetative / Foliage)\n• Farm Location: Kiambu (Limuru)\n• Clinical Diagnosis: Late Blight (Phytophthora infestans) (Critical severity, 96% match)\n• Recommended Prescriptions: Ridomil Gold, Mancozeb 80WP\n• Safety Withholding (PHI): 7 Days\n• Farmer Request: Severe dark water-soaked lesions observed on lower leaves after continuous rains. Need urgent verification of systemic spray rotation.',
+      createdAt: '2026-09-28T09:15:00.000Z'
+    },
+    {
+      id: 'DISPATCH-739102',
+      name: 'Alice Chepkirui',
+      contact: '0712998441',
+      county: 'Nakuru (Njoro Sub-County)',
+      specialistId: null,
+      specialistName: 'Agronomy Field Operations Desk',
+      mode: 'Phone Call',
+      urgency: 'High Urgency',
+      status: 'in-progress',
+      crop: 'Maize (H6213)',
+      diagnosis: 'Fall Armyworm (Spodoptera frugiperda)',
+      severity: 'High',
+      confidence: 94,
+      products: ['Belt 480SC', 'Coragen 200SC', 'Ampligo 150ZC'],
+      hasAttachedPhoto: true,
+      sampleSpecimenKey: 'maize-armyworm',
+      photoName: 'maize-whorl-specimen.jpg',
+      details: '[AUTO-POPULATED DIAGNOSTIC CASE - REF: RX-KILI-2026-739102]\n• Crop Type & Stage: Maize (Whorl Stage)\n• Farm Location: Nakuru (Njoro)\n• Clinical Diagnosis: Fall Armyworm (High severity, 94% match)\n• Prescribed Treatments: Belt 480SC, Coragen 200SC\n• Farmer Request: Frass and feeding holes in leaf whorls across 3 acres. Requesting advice on spray nozzle calibration and timing.',
+      createdAt: '2026-09-28T10:30:00.000Z'
+    },
+    {
+      id: 'DISPATCH-612480',
+      name: 'Mwangi Gitau',
+      contact: '0703112890',
+      county: 'Kirinyaga (Mwea)',
+      specialistId: null,
+      specialistName: 'Kilimonet IPM Support',
+      mode: 'On-Farm Inspection',
+      urgency: 'Standard',
+      status: 'resolved',
+      crop: 'Tomatoes (Anna F1)',
+      diagnosis: 'Early Blight & Septoria (Alternaria solani)',
+      severity: 'Moderate',
+      confidence: 91,
+      products: ['Copper Oxychloride', 'Mancozeb 80WP'],
+      hasAttachedPhoto: true,
+      sampleSpecimenKey: 'tomato-blight',
+      photoName: 'tomato-early-blight.jpg',
+      details: '[AUTO-POPULATED DIAGNOSTIC CASE - REF: RX-KILI-2026-612480]\n• Crop Type & Stage: Tomatoes (Anna F1)\n• Farm Location: Kirinyaga (Mwea)\n• Clinical Diagnosis: Early Blight & Septoria (Alternaria solani)\n• Prescribed Treatments: Copper Oxychloride, Mancozeb 80WP\n• Farmer Request: Concentric ring lesions on lower leaves after furrow irrigation. Verified copper preventative schedule.',
+      createdAt: '2026-09-27T14:20:00.000Z'
+    }
+  ]
 };
 
 // ==========================================================================
@@ -1175,68 +1941,267 @@ let latestDiagnosis = null;
 let latestImage = null;
 let userPosition = null;
 
-const diagnosisForm = document.getElementById('diagnosis-form');
-const imageInput = document.getElementById('crop-image');
-const cameraInput = document.getElementById('crop-camera');
-const imagePreviewWrap = document.getElementById('image-preview-wrap');
-const imagePreview = document.getElementById('image-preview');
-const imageMeta = document.getElementById('image-meta');
-const btnClearImage = document.getElementById('btn-clear-image');
-const btnDiagnoseSubmit = document.getElementById('btn-diagnose-submit');
+let diagnosisForm = null;
+let imageInput = null;
+let cameraInput = null;
+let imagePreviewWrap = null;
+let imagePreview = null;
+let imageMeta = null;
+let btnClearImage = null;
+let btnDiagnoseSubmit = null;
 
 // Crop Selection Elements
-const cropChips = document.querySelectorAll('#crop-chips .crop-chip');
-const selectedCropInput = document.getElementById('selected-crop');
-const customCropField = document.getElementById('custom-crop-field');
-const customCropName = document.getElementById('custom-crop-name');
+let cropChips = [];
+let selectedCropInput = null;
+let customCropField = null;
+let customCropName = null;
 
 // Interactive Radar Elements
-const scanningRadar = document.getElementById('scanning-radar');
-const scanningProgressFill = document.getElementById('scanning-progress-fill');
-const scanningPercent = document.getElementById('scanning-percent');
-const scanningStageTitle = document.getElementById('scanning-stage-title');
-const scanningStageDesc = document.getElementById('scanning-stage-desc');
+let scanningRadar = null;
+let scanningProgressFill = null;
+let scanningPercent = null;
+let scanningStageTitle = null;
+let scanningStageDesc = null;
 
-const diagnosisResult = document.getElementById('diagnosis-result');
-const productsWrap = document.getElementById('recommended-products');
-const agrovetList = document.getElementById('agrovet-list');
-const detectLocationBtn = document.getElementById('detect-location-btn');
-const locationStatus = document.getElementById('location-status');
-const specialistList = document.getElementById('specialist-list');
-const consultationForm = document.getElementById('consultation-form');
-const consultFeedback = document.getElementById('consult-feedback');
-const advisoryList = document.getElementById('advisory-list');
+let diagnosisResult = null;
+let productsWrap = null;
+let agrovetList = null;
+let detectLocationBtn = null;
+let locationStatus = null;
+let agrovetCountySelect = null;
+let agrovetTownSelect = null;
+let agrovetSearchInput = null;
+let agrovetSearchClear = null;
+let agrovetResetBtn = null;
+let agrovetResultsCount = null;
+let agrovetSortIndicator = null;
+let agrovetNetworkCount = null;
+let recommendedProductsContainer = null;
+let specialistList = null;
+let specialistsAvailableCount = null;
+let consultationForm = null;
+let consultFeedback = null;
+let consultDiagnosisPreview = null;
+let consultNoDiagnosisNotice = null;
+let consultAttachedPhoto = null;
+let consultPhotoLabel = null;
+let consultAttachCropDiag = null;
+let consultAttachSeverity = null;
+let consultAttachMeta = null;
+let consultAttachProducts = null;
+let btnDetachDiagnosis = null;
+let consultSpecialistAssignee = null;
+let consultDirectWaBtn = null;
+let consultWaBtnText = null;
+let advisoryList = null;
 
-const adminLoginForm = document.getElementById('admin-login-form');
-const adminAuthWrap = document.getElementById('admin-auth-wrap');
-const adminDashboard = document.getElementById('admin-dashboard');
-const adminRoleLabel = document.getElementById('admin-role-label');
-const adminLoginFeedback = document.getElementById('admin-login-feedback');
-const adminFeedback = document.getElementById('admin-feedback');
-const agrovetPanel = document.getElementById('agrovet-admin-panel');
-const specialistPanel = document.getElementById('specialist-admin-panel');
-const adminLogout = document.getElementById('admin-logout');
+// Refined Admin & Specialist Operations Portal Elements
+let adminPortalModal = null;
+let headerPortalBtn = null;
+let btnLaunchPortal = null;
+let portalModalClose = null;
+let portalModalDismissBtn = null;
+let portalAuthView = null;
+let portalDashboardView = null;
+let portalRoleBadge = null;
+let portalSessionStatus = null;
 
-const agrovetSelect = document.getElementById('agrovet-select');
-const specialistSelect = document.getElementById('specialist-select');
-const agrovetStockForm = document.getElementById('agrovet-stock-form');
-const agrovetNoticeForm = document.getElementById('agrovet-notice-form');
-const specialistUpdateForm = document.getElementById('specialist-update-form');
-const specialistAdvisoryForm = document.getElementById('specialist-advisory-form');
+let adminLoginForm = null;
+let adminRoleLabel = null;
+let adminLoginFeedback = null;
+let adminFeedback = null;
+let adminLogout = null;
 
-initSmartAssist();
+// Portal Tabs & Panels
+let portalTabs = [];
+let panelInventoryEditor = null;
+let panelAdvisoryPublisher = null;
+let panelInquiryReviewer = null;
+let countAgrovetsBadge = null;
+let countAdvisoriesBadge = null;
+let countInquiriesBadge = null;
+
+// Inventory Editor Elements
+let agrovetSelect = null;
+let inventoryTableBody = null;
+let agrovetStockForm = null;
+let agrovetNoticeForm = null;
+
+// Advisory Publisher Elements
+let specialistAdvisoryForm = null;
+let portalAdvisoriesList = null;
+
+// Inquiry Reviewer Elements
+let portalInquiriesList = null;
+let inquiryFilterBtns = [];
+let inqCountAll = null;
+let inqCountPending = null;
+let inqCountResolved = null;
+
+let currentInquiryFilter = 'all';
+
+function bindDomElements() {
+  diagnosisForm = document.getElementById('diagnosis-form');
+  imageInput = document.getElementById('crop-image');
+  cameraInput = document.getElementById('crop-camera');
+  imagePreviewWrap = document.getElementById('image-preview-wrap');
+  imagePreview = document.getElementById('image-preview');
+  imageMeta = document.getElementById('image-meta');
+  btnClearImage = document.getElementById('btn-clear-image');
+  btnDiagnoseSubmit = document.getElementById('btn-diagnose-submit');
+
+  cropChips = document.querySelectorAll('#crop-chips .crop-chip');
+  selectedCropInput = document.getElementById('selected-crop');
+  customCropField = document.getElementById('custom-crop-field');
+  customCropName = document.getElementById('custom-crop-name');
+
+  scanningRadar = document.getElementById('scanning-radar');
+  scanningProgressFill = document.getElementById('scanning-progress-fill');
+  scanningPercent = document.getElementById('scanning-percent');
+  scanningStageTitle = document.getElementById('scanning-stage-title');
+  scanningStageDesc = document.getElementById('scanning-stage-desc');
+
+  diagnosisResult = document.getElementById('diagnosis-result');
+  productsWrap = document.getElementById('recommended-products');
+  agrovetList = document.getElementById('agrovet-list');
+  detectLocationBtn = document.getElementById('detect-location-btn');
+  locationStatus = document.getElementById('location-status');
+  agrovetCountySelect = document.getElementById('agrovet-county-select');
+  agrovetTownSelect = document.getElementById('agrovet-town-select');
+  agrovetSearchInput = document.getElementById('agrovet-search-input');
+  agrovetSearchClear = document.getElementById('agrovet-search-clear');
+  agrovetResetBtn = document.getElementById('agrovet-reset-filters-btn');
+  agrovetResultsCount = document.getElementById('agrovet-results-count');
+  agrovetSortIndicator = document.getElementById('agrovet-sort-indicator');
+  agrovetNetworkCount = document.getElementById('agrovet-network-count');
+  recommendedProductsContainer = document.getElementById('recommended-products-container');
+  specialistList = document.getElementById('specialist-list');
+  specialistsAvailableCount = document.getElementById('specialists-available-count');
+  consultationForm = document.getElementById('consultation-form');
+  consultFeedback = document.getElementById('consult-feedback');
+  consultDiagnosisPreview = document.getElementById('consult-diagnosis-preview');
+  consultNoDiagnosisNotice = document.getElementById('consult-no-diagnosis-notice');
+  consultAttachedPhoto = document.getElementById('consult-attached-photo');
+  consultPhotoLabel = document.getElementById('consult-photo-label');
+  consultAttachCropDiag = document.getElementById('consult-attach-crop-diag');
+  consultAttachSeverity = document.getElementById('consult-attach-severity');
+  consultAttachMeta = document.getElementById('consult-attach-meta');
+  consultAttachProducts = document.getElementById('consult-attach-products');
+  btnDetachDiagnosis = document.getElementById('btn-detach-diagnosis');
+  consultSpecialistAssignee = document.getElementById('consult-specialist-assignee');
+  consultDirectWaBtn = document.getElementById('consult-direct-wa-btn');
+  consultWaBtnText = document.getElementById('consult-wa-btn-text');
+  advisoryList = document.getElementById('advisory-list');
+
+  adminPortalModal = document.getElementById('admin-portal-modal');
+  headerPortalBtn = document.getElementById('header-portal-btn');
+  btnLaunchPortal = document.getElementById('btn-launch-portal');
+  portalModalClose = document.getElementById('portal-modal-close');
+  portalModalDismissBtn = document.getElementById('portal-modal-dismiss-btn');
+  portalAuthView = document.getElementById('portal-auth-view');
+  portalDashboardView = document.getElementById('portal-dashboard-view');
+  portalRoleBadge = document.getElementById('portal-role-badge');
+  portalSessionStatus = document.getElementById('portal-session-status');
+
+  adminLoginForm = document.getElementById('admin-login-form');
+  adminRoleLabel = document.getElementById('admin-role-label');
+  adminLoginFeedback = document.getElementById('admin-login-feedback');
+  adminFeedback = document.getElementById('admin-feedback');
+  adminLogout = document.getElementById('admin-logout');
+
+  portalTabs = document.querySelectorAll('.portal-tab');
+  panelInventoryEditor = document.getElementById('panel-inventory-editor');
+  panelAdvisoryPublisher = document.getElementById('panel-advisory-publisher');
+  panelInquiryReviewer = document.getElementById('panel-inquiry-reviewer');
+  countAgrovetsBadge = document.getElementById('count-agrovets-badge');
+  countAdvisoriesBadge = document.getElementById('count-advisories-badge');
+  countInquiriesBadge = document.getElementById('count-inquiries-badge');
+
+  agrovetSelect = document.getElementById('agrovet-select');
+  inventoryTableBody = document.getElementById('inventory-table-body');
+  agrovetStockForm = document.getElementById('agrovet-stock-form');
+  agrovetNoticeForm = document.getElementById('agrovet-notice-form');
+
+  specialistAdvisoryForm = document.getElementById('specialist-advisory-form');
+  portalAdvisoriesList = document.getElementById('portal-advisories-list');
+
+  portalInquiriesList = document.getElementById('portal-inquiries-list');
+  inquiryFilterBtns = document.querySelectorAll('.btn-inquiry-filter');
+  inqCountAll = document.getElementById('inq-count-all');
+  inqCountPending = document.getElementById('inq-count-pending');
+  inqCountResolved = document.getElementById('inq-count-resolved');
+}
 
 function initSmartAssist() {
+  bindDomElements();
   bindCropChips();
   bindSampleChips();
   bindDiagnosisInputs();
   bindFarmerFlows();
   bindAdminFlows();
+  initAgrovetFilters();
+  renderAgrovets();
   renderSpecialists();
+  loadSpecialistsFromApi();
   renderAdvisories();
   hydrateAdminSession();
   renderAgrovetOptions();
   renderSpecialistOptions();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSmartAssist);
+} else {
+  initSmartAssist();
+}
+
+async function loadSpecialistsFromApi() {
+  try {
+    const res = await fetch('/api/specialists');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.specialists) && data.specialists.length > 0) {
+        smartData.specialists = data.specialists;
+        renderSpecialists();
+      }
+    }
+  } catch {
+    // Non-blocking in offline mode
+  }
+}
+
+function initAgrovetFilters() {
+  if (!agrovetCountySelect) agrovetCountySelect = document.getElementById('agrovet-county-select');
+  if (!agrovetTownSelect) agrovetTownSelect = document.getElementById('agrovet-town-select');
+  if (!agrovetCountySelect || !agrovetTownSelect) return;
+
+  const counties = Array.from(new Set(smartData.agrovets.map((a) => a.county))).sort();
+  agrovetCountySelect.innerHTML = '<option value="">All Agricultural Counties (Kenya)</option>' +
+    counties.map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)} County</option>`).join('');
+
+  updateTownOptions();
+
+  if (agrovetNetworkCount) {
+    const totalAgrovets = smartData.agrovets.length;
+    const totalCounties = counties.length;
+    agrovetNetworkCount.textContent = `Verified Network: ${totalAgrovets} Agrovets in ${totalCounties} Counties`;
+  }
+}
+
+function updateTownOptions() {
+  if (!agrovetTownSelect) agrovetTownSelect = document.getElementById('agrovet-town-select');
+  if (!agrovetCountySelect) agrovetCountySelect = document.getElementById('agrovet-county-select');
+  if (!agrovetTownSelect) return;
+  const selectedCounty = agrovetCountySelect?.value || '';
+
+  let relevantAgrovets = smartData.agrovets;
+  if (selectedCounty) {
+    relevantAgrovets = relevantAgrovets.filter((a) => a.county === selectedCounty);
+  }
+
+  const towns = Array.from(new Set(relevantAgrovets.map((a) => a.town).filter(Boolean))).sort();
+  agrovetTownSelect.innerHTML = '<option value="">All Towns &amp; Trading Hubs</option>' +
+    towns.map((t) => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('');
 }
 
 const SAMPLE_PRESETS = {
@@ -1604,8 +2569,44 @@ function bindFarmerFlows() {
     renderDiagnosisResult(result, { cropType, location });
     renderRecommendedProducts(result.products);
     renderAgrovets(result.products);
+    autoPopulateConsultationForm(result, { cropType, location, cropStage, image: latestImage });
+    renderSpecialists();
 
     diagnosisResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  // Agrovet Hub Filter Listeners
+  agrovetCountySelect?.addEventListener('change', () => {
+    updateTownOptions();
+    renderAgrovets(latestDiagnosis?.products || []);
+  });
+
+  agrovetTownSelect?.addEventListener('change', () => {
+    renderAgrovets(latestDiagnosis?.products || []);
+  });
+
+  agrovetSearchInput?.addEventListener('input', () => {
+    const hasVal = !!agrovetSearchInput.value.trim();
+    if (agrovetSearchClear) agrovetSearchClear.hidden = !hasVal;
+    renderAgrovets(latestDiagnosis?.products || []);
+  });
+
+  agrovetSearchClear?.addEventListener('click', () => {
+    if (agrovetSearchInput) {
+      agrovetSearchInput.value = '';
+      agrovetSearchClear.hidden = true;
+      renderAgrovets(latestDiagnosis?.products || []);
+    }
+  });
+
+  agrovetResetBtn?.addEventListener('click', () => {
+    if (agrovetCountySelect) agrovetCountySelect.value = '';
+    updateTownOptions();
+    if (agrovetSearchInput) agrovetSearchInput.value = '';
+    if (agrovetSearchClear) agrovetSearchClear.hidden = true;
+    userPosition = null;
+    if (locationStatus) locationStatus.textContent = 'Location: Kenya Agricultural Breadbasket';
+    renderAgrovets(latestDiagnosis?.products || []);
   });
 
   detectLocationBtn?.addEventListener('click', () => {
@@ -1614,54 +2615,153 @@ function bindFarmerFlows() {
       return;
     }
 
-    locationStatus.textContent = 'Detecting location...';
+    locationStatus.textContent = 'Detecting GPS coordinates...';
     navigator.geolocation.getCurrentPosition(
       (position) => {
         userPosition = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        locationStatus.textContent = `Location detected (${userPosition.lat.toFixed(4)}, ${userPosition.lng.toFixed(4)}).`;
+
+        // Find nearest agrovet in our directory
+        let nearest = null;
+        let minD = Infinity;
+        smartData.agrovets.forEach((ag) => {
+          const d = haversineKm(userPosition.lat, userPosition.lng, ag.lat, ag.lng);
+          if (d < minD) {
+            minD = d;
+            nearest = ag;
+          }
+        });
+
+        if (nearest && locationStatus) {
+          locationStatus.textContent = `📍 GPS Active (${userPosition.lat.toFixed(3)}, ${userPosition.lng.toFixed(3)}) • Nearest: ${nearest.town || nearest.county} (~${minD.toFixed(1)} km)`;
+        } else if (locationStatus) {
+          locationStatus.textContent = `📍 GPS Location detected (${userPosition.lat.toFixed(4)}, ${userPosition.lng.toFixed(4)})`;
+        }
         renderAgrovets(latestDiagnosis?.products || []);
       },
-      () => {
-        locationStatus.textContent = 'Could not detect location. Use manual location field instead.';
+      (err) => {
+        if (locationStatus) {
+          locationStatus.textContent = `GPS unavailable (${err.message || 'permission denied'}). Use county dropdown above.`;
+        }
       },
       { enableHighAccuracy: true, timeout: 8000 }
     );
+  });
+
+  // Specialist Consultation Form Controls
+  consultSpecialistAssignee?.addEventListener('change', updateConsultationWhatsAppBtn);
+  document.getElementById('consult-county')?.addEventListener('input', updateConsultationWhatsAppBtn);
+
+  btnDetachDiagnosis?.addEventListener('click', () => {
+    if (consultDiagnosisPreview) consultDiagnosisPreview.hidden = true;
+    if (consultNoDiagnosisNotice) consultNoDiagnosisNotice.hidden = false;
+    const detailsField = document.getElementById('consult-details');
+    if (detailsField && detailsField.value.includes('[AUTO-POPULATED DIAGNOSTIC CASE')) {
+      detailsField.value = '';
+    }
   });
 
   consultationForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
     if (isSpamSubmission(consultationForm) || isRateLimited('consultation', 10)) {
-      showFeedback(consultFeedback, 'Please wait and try again.');
+      showFeedback(consultFeedback, 'Please wait a moment before sending another request.');
       return;
     }
 
+    const assignedSpecId = consultSpecialistAssignee?.value || '';
+    const assignedSpec = (smartData.specialists && smartData.specialists.find((s) => s.id === assignedSpecId)) || (smartData.specialists && smartData.specialists[0]) || {
+      id: 'central-dispatch',
+      name: 'Kilimonet Agronomy Duty Desk',
+      title: 'Senior Duty Agronomist',
+      phone: '0798981760'
+    };
+
     const payload = {
-      id: `consult-${Date.now()}`,
+      id: `DISPATCH-${Date.now().toString().slice(-6)}`,
       name: document.getElementById('consult-name')?.value.trim(),
       contact: document.getElementById('consult-contact')?.value.trim(),
       county: document.getElementById('consult-county')?.value.trim(),
+      specialistId: assignedSpecId || assignedSpec?.id,
+      specialistName: assignedSpec?.name,
       mode: document.getElementById('consult-mode')?.value,
+      urgency: document.getElementById('consult-urgency')?.value,
       details: document.getElementById('consult-details')?.value.trim(),
+      crop: selectedCropInput?.value || latestDiagnosis?.cropType || 'Crop',
+      diagnosis: latestDiagnosis ? latestDiagnosis.diagnosis : null,
+      severity: latestDiagnosis ? latestDiagnosis.severity : null,
+      hasAttachedPhoto: !!latestImage,
+      photoName: latestImage?.fileName || null,
       createdAt: new Date().toISOString()
     };
 
     if (!payload.name || !payload.contact || !payload.county || !payload.mode || !payload.details) {
-      showFeedback(consultFeedback, 'Please fill all consultation fields.');
+      showFeedback(consultFeedback, 'Please fill all required consultation fields.');
       return;
     }
 
     smartData.consultations.unshift(payload);
     persistSmartData();
-    consultationForm.reset();
-    showFeedback(consultFeedback, 'Consultation request sent. A specialist will reach out shortly.');
+
+    const specPhone = cleanKenyaPhone(assignedSpec?.phone || '0798981760') || '254798981760';
+    const waMsg = buildSpecialistConsultMessage(assignedSpec, latestDiagnosis, {
+      cropType: payload.crop,
+      location: payload.county,
+      hasPhoto: payload.hasAttachedPhoto
+    });
+    const waUrl = buildWhatsAppUrl(specPhone, waMsg);
+
+    showFeedback(
+      consultFeedback,
+      `✅ Consultation Dispatch #${payload.id} successfully queued for ${escapeHtml(assignedSpec.name)}! Our team will contact you via ${escapeHtml(payload.mode)}.<br><a class="btn-whatsapp-specialist" href="${waUrl}" target="_blank" rel="noopener noreferrer" style="margin-top:0.6rem; display:inline-flex;">💬 Chat with ${escapeHtml(assignedSpec.name.split(' ')[0])} on WhatsApp Now</a>`,
+      true
+    );
   });
 }
 
 function bindAdminFlows() {
+  // Modal open/close listeners
+  headerPortalBtn?.addEventListener('click', () => openAdminPortal());
+  btnLaunchPortal?.addEventListener('click', () => openAdminPortal());
+  portalModalClose?.addEventListener('click', closeAdminPortal);
+  portalModalDismissBtn?.addEventListener('click', closeAdminPortal);
+
+  // Close modal when clicking outside dialog or pressing Escape
+  adminPortalModal?.addEventListener('click', (event) => {
+    if (event.target === adminPortalModal) {
+      closeAdminPortal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && adminPortalModal && !adminPortalModal.hidden) {
+      closeAdminPortal();
+    }
+  });
+
+  // Demo Role Quick-Login Chips
+  const demoChips = document.querySelectorAll('.demo-chip');
+  demoChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const user = chip.getAttribute('data-user');
+      const pass = chip.getAttribute('data-pass');
+      const userInput = document.getElementById('admin-username');
+      const passInput = document.getElementById('admin-password');
+      if (userInput && passInput) {
+        userInput.value = user;
+        passInput.value = pass;
+        if (typeof adminLoginForm?.requestSubmit === 'function') {
+          adminLoginForm.requestSubmit();
+        } else {
+          adminLoginForm?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+        }
+      }
+    });
+  });
+
+  // Admin Login submission
   adminLoginForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -1670,63 +2770,87 @@ function bindAdminFlows() {
     const account = ADMIN_CREDENTIALS[username];
 
     if (!account || account.password !== password) {
-      showFeedback(adminLoginFeedback, 'Invalid admin credentials.');
+      showFeedback(adminLoginFeedback, 'Invalid admin credentials. Please use one of the quick demo role buttons.');
       return;
     }
 
     const session = { role: account.role, username, at: Date.now() };
     sessionStorage.setItem('kili_admin_session', JSON.stringify(session));
     adminLoginForm.reset();
-    adminLoginFeedback.hidden = true;
+    if (adminLoginFeedback) adminLoginFeedback.hidden = true;
     renderAdminSession(session);
   });
 
+  // Admin Logout
   adminLogout?.addEventListener('click', () => {
     sessionStorage.removeItem('kili_admin_session');
-    adminDashboard.hidden = true;
-    adminAuthWrap.hidden = false;
+    if (portalDashboardView) portalDashboardView.hidden = true;
+    if (portalAuthView) portalAuthView.hidden = false;
+    if (portalRoleBadge) portalRoleBadge.hidden = true;
+    if (portalSessionStatus) portalSessionStatus.textContent = 'Demo: agrovetadmin / specialistadmin';
+    if (adminFeedback) adminFeedback.hidden = true;
   });
 
+  // Portal Tabs switching
+  portalTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetTab = tab.getAttribute('data-portal-tab');
+      if (targetTab) {
+        switchPortalTab(targetTab);
+      }
+    });
+  });
+
+  // Agrovet Select dropdown change
+  agrovetSelect?.addEventListener('change', () => {
+    renderPortalInventoryTable();
+  });
+
+  // Agrovet Stock Add/Update Form
   agrovetStockForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const agrovetId = agrovetSelect.value;
+    const agrovetId = agrovetSelect?.value;
     const productName = document.getElementById('product-name')?.value.trim();
     const stock = Number(document.getElementById('product-stock')?.value || 0);
     const price = Number(document.getElementById('product-price')?.value || 0);
 
-    const agrovet = smartData.agrovets.find((item) => item.id === agrovetId);
+    const agrovet = smartData.agrovets.find((item) => item.id === agrovetId) || smartData.agrovets[0];
     if (!agrovet || !productName) {
-      showFeedback(adminFeedback, 'Select agrovet and product details.');
+      showFeedback(adminFeedback, 'Select an agrovet and enter product details.');
       return;
     }
 
-    const existing = agrovet.products.find((item) => item.name.toLowerCase() === productName.toLowerCase());
+    const existing = (agrovet.products || []).find((item) => item.name.toLowerCase() === productName.toLowerCase());
     if (existing) {
       existing.stock = stock;
       existing.price = price;
     } else {
+      if (!agrovet.products) agrovet.products = [];
       agrovet.products.push({ name: productName, stock, price });
     }
 
     persistSmartData();
     agrovetStockForm.reset();
-    showFeedback(adminFeedback, `Stock updated for ${agrovet.name}.`);
+    renderPortalInventoryTable();
+    updatePortalBadges();
+    showFeedback(adminFeedback, `✅ Saved "${productName}" (Stock: ${stock}, KES ${price.toLocaleString()}) to ${agrovet.name}.`);
 
     if (latestDiagnosis?.products?.length) {
       renderAgrovets(latestDiagnosis.products);
     }
   });
 
+  // Agrovet Notice Form
   agrovetNoticeForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const title = document.getElementById('agrovet-notice-title')?.value.trim();
     const message = document.getElementById('agrovet-notice-body')?.value.trim();
-    const agrovet = smartData.agrovets.find((item) => item.id === agrovetSelect.value);
+    const agrovet = smartData.agrovets.find((item) => item.id === agrovetSelect?.value) || smartData.agrovets[0];
 
     if (!title || !message || !agrovet) {
-      showFeedback(adminFeedback, 'Complete notice details first.');
+      showFeedback(adminFeedback, 'Complete notice title and message first.');
       return;
     }
 
@@ -1736,58 +2860,59 @@ function bindAdminFlows() {
       title,
       message,
       region: agrovet.county,
+      priority: 'Advisory',
       createdAt: new Date().toISOString().slice(0, 10)
     });
 
     persistSmartData();
     agrovetNoticeForm.reset();
-    showFeedback(adminFeedback, 'Agrovet notice published.');
     renderAdvisories();
+    renderPortalAdvisoriesList();
+    updatePortalBadges();
+    showFeedback(adminFeedback, `📢 Agrovet notice broadcast to ${agrovet.county} farmers.`);
   });
 
-  specialistUpdateForm?.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const specialistId = specialistSelect.value;
-    const availability = document.getElementById('specialist-availability')?.value;
-    const specialist = smartData.specialists.find((item) => item.id === specialistId);
-
-    if (!specialist) {
-      showFeedback(adminFeedback, 'Select specialist.');
-      return;
-    }
-
-    specialist.availability = availability;
-    persistSmartData();
-    showFeedback(adminFeedback, `Availability updated for ${specialist.name}.`);
-    renderSpecialists();
-  });
-
+  // Specialist Advisory Form
   specialistAdvisoryForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const title = document.getElementById('specialist-advisory-title')?.value.trim();
-    const message = document.getElementById('specialist-advisory-body')?.value.trim();
     const region = document.getElementById('specialist-advisory-region')?.value.trim() || 'National';
+    const author = document.getElementById('specialist-advisory-author')?.value.trim() || 'Senior Agronomist';
+    const priority = document.getElementById('specialist-advisory-priority')?.value || 'Advisory';
+    const message = document.getElementById('specialist-advisory-body')?.value.trim();
 
     if (!title || !message) {
-      showFeedback(adminFeedback, 'Add advisory title and message.');
+      showFeedback(adminFeedback, 'Please enter both an advisory headline and clinical instructions.');
       return;
     }
 
     smartData.advisories.unshift({
       id: `adv-${Date.now()}`,
-      source: 'Specialist',
+      source: author,
       title,
       message,
       region,
+      priority,
       createdAt: new Date().toISOString().slice(0, 10)
     });
 
     persistSmartData();
     specialistAdvisoryForm.reset();
-    showFeedback(adminFeedback, 'Specialist advisory published.');
     renderAdvisories();
+    renderPortalAdvisoriesList();
+    updatePortalBadges();
+    showFeedback(adminFeedback, `📢 Pathology Advisory "${title}" successfully broadcast across ${region}!`);
+  });
+
+  // Inquiry Filter Buttons
+  inquiryFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      inquiryFilterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentInquiryFilter = btn.getAttribute('data-filter') || 'all';
+      renderPortalInquiries();
+    });
   });
 }
 
@@ -2027,110 +3152,113 @@ function buildPrescriptionMessage(result, meta = {}, audienceType = 'agrovet') {
   const cropStage = meta.cropStage || 'Vegetative / Foliage';
   const items = getDosagesList(result);
   const now = new Date();
-  const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
   const rxId = meta.rxId || `RX-KILI-${now.getFullYear()}-${Math.floor(100000 + (now.getTime() % 900000))}`;
 
   if (audienceType === 'worker') {
     const sprayItems = items.map((item) => {
       return `${item.index}️⃣ *${item.brand}*
-   • *Knapsack Dosage:* ${item.dosage}
-   • *Active Chemical:* ${item.ingredient}`;
+   • *Prescribed Knapsack Dosage:* ${item.dosage}
+   • *Active Chemical Ingredient:* ${item.ingredient}${item.altBrands ? `\n   • *Alternative Brand Options:* ${item.altBrands.replace(' (or ', '').replace(')', '')}` : ''}`;
     }).join('\n');
 
     const sprayTarget = getTargetAreaForDiagnosis(result.diagnosis);
 
     return [
-      `⚠️ *FIELD SPRAYING & SAFETY GUIDE - FARM OPERATOR* ⚠️`,
+      `⚠️ *KILIMONET FIELD SPRAYING & DOSAGE GUIDE - FARM OPERATOR* ⚠️`,
       `----------------------------------------`,
-      `🌱 *Crop Block:* ${cropName} (${cropStage})`,
+      `🌱 *Crop Type:* ${cropName} (${cropStage})`,
       `📍 *Field Location:* ${location}`,
-      `🎯 *Target Problem:* ${result.diagnosis} [${result.severity || 'High'} Severity]`,
+      `⚠️ *Suspected Disease:* ${result.diagnosis} [${result.severity || 'High'} Severity]`,
+      result.localSwahiliName ? `🇰🇪 *Local Swahili Term:* ${result.localSwahiliName}` : null,
+      `🎯 *Confidence Match:* ${result.confidence}% Match`,
       `📅 *Treatment Date:* ${dateStr}`,
-      `🔢 *Rx Ref:* ${rxId}`,
+      `🔢 *Prescription Ref:* ${rxId}`,
       ``,
-      `🧪 *SPRAY MIXING RATIOS & DOSAGE (Per 20L Knapsack Sprayer):*`,
+      `🧪 *RECOMMENDED TREATMENT PRODUCTS & KNAPSACK DOSAGES:*`,
+      `(Calibrated for standard 20-Litre Knapsack Sprayer)`,
       sprayItems,
       ``,
-      `📋 *STEP-BY-STEP SPRAYING INSTRUCTIONS:*`,
-      `1. *Spray Timing:* Early morning (6:30am - 9:00am) or late afternoon (4:30pm - 6:30pm). NEVER spray during midday sun or windy conditions.`,
-      `2. *Clean Water:* Mix prescribed dosage in a small bucket first, pour into knapsack, top up to 20L mark, and agitate thoroughly.`,
-      `3. *Target Zone:* Direct spray nozzle thoroughly focusing on ${sprayTarget}.`,
+      `📋 *STEP-BY-STEP FIELD SPRAYING INSTRUCTIONS:*`,
+      `1. *Spray Timing:* Early morning (6:30am - 9:00am) or late afternoon (4:30pm - 6:30pm). NEVER spray in midday hot sun or windy conditions.`,
+      `2. *Clean Water Calibration:* Measure exact chemical dose using syringe/measuring cup. Pre-mix in 2L clean bucket before pouring into 20L knapsack. Top up to 20L mark and agitate thoroughly.`,
+      `3. *Target Zone:* Direct spray nozzle thoroughly covering ${sprayTarget}.`,
       ``,
-      `🛡️ *MANDATORY SAFETY & WITHHOLDING RULES:*`,
-      `• *Required PPE:* Full respirator mask, rubber gloves, eye goggles, and gumboots!`,
-      `• *Worker Re-entry:* Do NOT enter sprayed block for ${result.withholdingPeriod?.reEntryHours || 24} Hours.`,
+      `🛡️ *MANDATORY SAFETY & WITHHOLDING COMPLIANCE:*`,
+      `• *Required PPE:* Full chemical-resistant gloves, respirator face mask, protective eye goggles & gumboots!`,
+      `• *Worker Field Re-entry:* Do NOT enter sprayed block for ${result.withholdingPeriod?.reEntryHours || 24} Hours after spraying.`,
       `• *Harvest Withholding (PHI):* STRICTLY FORBIDDEN to pick, sell, or consume crop for ${result.withholdingPeriod?.days || 7} Days after spraying!`,
       `----------------------------------------`,
-      `_Prescribed by Kilimonet Farm Management Agronomy Team_`
+      `_Prescribed by Kilimonet Agronomy Support | Hotline: +254 798 981 760_`
     ].filter(Boolean).join('\n');
   }
 
   if (audienceType === 'report') {
     const fullItems = items.map((item) => {
-      return `• *${item.brand}* [${item.ingredient}]: ${item.dosage}`;
+      return `${item.index}️⃣ *${item.brand}* [${item.ingredient}]: ${item.dosage}${item.altBrands ? ` (Alt: ${item.altBrands.replace(' (or ', '').replace(')', '')})` : ''}`;
     }).join('\n');
     const symptoms = (result.symptomAnalysis || ['Diagnostic foliar symptoms identified']).map((s) => `• ${s}`).join('\n');
     const organics = (result.organicAlternatives || ['Standard compost tea & bio-fungicide drench']).map((o) => `• ${o}`).join('\n');
     const culturals = (result.culturalPractices || ['Maintain crop hygiene and scout twice weekly']).map((c) => `• ${c}`).join('\n');
 
     return [
-      `🔬 *KILIMONET SMART ASSIST - FULL AGRONOMIC DIAGNOSIS* 🔬`,
+      `🔬 *KILIMONET SMART ASSIST - FULL AGRONOMIC DIAGNOSTIC SHEET* 🔬`,
       `----------------------------------------`,
-      `🌱 *Crop:* ${cropName}${result.localSwahiliName ? ` (${result.localSwahiliName})` : ''}`,
-      `📍 *Location:* ${location} | *Stage:* ${cropStage}`,
-      `⚠️ *Diagnosis:* ${result.diagnosis}`,
+      `🌱 *Crop Type:* ${cropName}${result.localSwahiliName ? ` (${result.localSwahiliName})` : ''}`,
+      `📍 *Location:* ${location} | *Growth Stage:* ${cropStage}`,
+      `⚠️ *Suspected Disease:* ${result.diagnosis}`,
       result.scientificName ? `🔬 *Scientific Pathogen:* ${result.scientificName}` : null,
-      `🎯 *Confidence:* ${result.confidence}% Match | *Severity:* ${result.severity || 'High'}`,
-      `📅 *Date:* ${dateStr} | *Rx:* ${rxId}`,
+      `🎯 *Confidence Match:* ${result.confidence}% Match | *Severity:* ${result.severity || 'High'}`,
+      `📅 *Date:* ${dateStr} | *Prescription Ref:* ${rxId}`,
       ``,
       `🔍 *DIAGNOSTIC PATHOLOGY SYMPTOMS:*`,
       symptoms,
       ``,
-      `💊 *PRESCRIBED INPUTS & DOSAGES:*`,
+      `💊 *RECOMMENDED TREATMENT PRODUCTS & DOSAGES:*`,
       fullItems,
       ``,
       `🌿 *ORGANIC & BIOLOGICAL ALTERNATIVES:*`,
       organics,
       ``,
-      `⏳ *SAFETY & WITHHOLDING (PHI):*`,
-      `• Pre-Harvest Interval (PHI): ${result.withholdingPeriod?.days || 7} Days`,
+      `⏳ *SAFETY & STATUTORY WITHHOLDING (PHI):*`,
+      `• Pre-Harvest Interval (PHI): ${result.withholdingPeriod?.days || 7} Days before harvest`,
       `• Worker Re-entry Interval: ${result.withholdingPeriod?.reEntryHours || 24} Hours`,
       ``,
-      `🌾 *CULTURAL & PREVENTATIVE PRACTICES:*`,
+      `🌾 *CULTURAL & AGRONOMIC PREVENTION:*`,
       culturals,
       `----------------------------------------`,
       `_Kilimonet Integrated Agrisystems Limited | Nairobi & Kiambu, Kenya_`,
-      `_Web: www.kilimonet.co.ke | Tel: +254 798 981 760_`
+      `_Web: www.kilimonet.co.ke | Hotline: +254 798 981 760_`
     ].filter(Boolean).join('\n');
   }
 
-  // Default: Agrovet Order
+  // Default: Agrovet Input Order
   const formattedItems = items.map((item) => {
     return `${item.index}️⃣ *${item.brand}* [${item.ingredient}]${item.altBrands}
    • *Prescribed Dosage:* ${item.dosage}`;
   }).join('\n');
 
   return [
-    `🌿 *KILIMONET SMART ASSIST - AGROVET PRESCRIPTION ORDER* 🌿`,
+    `🌿 *KILIMONET SMART ASSIST - AGROVET PRESCRIPTION & INPUT ORDER* 🌿`,
     `----------------------------------------`,
     `🌱 *Crop Type:* ${cropName}${result.localSwahiliName ? ` (${result.localSwahiliName})` : ''}`,
     `📍 *Farm Location:* ${location}`,
-    `⚠️ *Suspected Diagnosis:* ${result.diagnosis}`,
+    `⚠️ *Suspected Disease:* ${result.diagnosis}`,
     result.scientificName ? `🔬 *Scientific Pathogen:* ${result.scientificName}` : null,
     `🎯 *Confidence Match:* ${result.confidence}% Match [${result.severity || 'High'} Severity]`,
     `📅 *Prescription Date:* ${dateStr}`,
-    `🔢 *Rx Ref:* ${rxId}`,
+    `🔢 *Prescription Ref:* ${rxId}`,
     ``,
-    `💊 *PRESCRIBED PRODUCTS & DOSAGES:*`,
+    `💊 *RECOMMENDED TREATMENT PRODUCTS & DOSAGES:*`,
     formattedItems,
     ``,
-    `⏳ *SAFETY WITHHOLDING PERIOD (PHI):*`,
+    `⏳ *SAFETY WITHHOLDING COMPLIANCE:*`,
     `• Pre-Harvest Interval (PHI): ${result.withholdingPeriod?.days || 7} Days before harvest`,
-    `• Worker Re-entry: ${result.withholdingPeriod?.reEntryHours || 24} Hours`,
+    `• Worker Re-entry Interval: ${result.withholdingPeriod?.reEntryHours || 24} Hours`,
     ``,
-    `_Hello Agrovet, please confirm if you have these items in stock, available pack sizes (50ml, 100ml, 250g, 1kg), and your current prices for farm pickup/delivery._`,
+    `💬 *Hello Agrovet, I need these products and dosages as recommended by Kilimonet Smart Assist for my ${cropName}. Please confirm current stock availability, container sizes (50ml, 100ml, 250g, 1kg), and prices for farm pickup or dispatch.*`,
     `----------------------------------------`,
-    `_Kilimonet Integrated Agrisystems | Tel: +254 798 981 760_`
+    `_Kilimonet Integrated Agrisystems | Hotline: +254 798 981 760_`
   ].filter(Boolean).join('\n');
 }
 
@@ -2230,7 +3358,7 @@ function renderPrescriptionModal(result, meta = {}) {
 
       <div class="rx-footer-signatures">
         <div class="rx-sig-block">
-          <div>Dr. Mercy Njoroge, PhD</div>
+          <div>Kilimonet Certified Agronomist</div>
           <small>Lead Pathologist, Kilimonet Agronomy</small>
         </div>
         <div style="text-align: center;">
@@ -2247,14 +3375,18 @@ function renderPrescriptionModal(result, meta = {}) {
   `;
 
   if (modalWaBtn) {
+    const rawPhone = document.getElementById('rx-target-phone')?.value.trim() || '0798981760';
+    const targetPhone = cleanKenyaPhone(rawPhone) || '254798981760';
     const defaultMsg = buildPrescriptionMessage(result, meta, 'agrovet');
-    modalWaBtn.href = buildWhatsAppUrl('254798981760', defaultMsg);
+    modalWaBtn.href = buildWhatsAppUrl(targetPhone, defaultMsg);
   }
 
   modal.hidden = false;
 }
 
 function renderDiagnosisResult(result, meta = {}) {
+  if (!diagnosisResult) diagnosisResult = document.getElementById('diagnosis-result');
+  if (!diagnosisResult) return;
   diagnosisResult.hidden = false;
 
   const severityClass = (result.severity || 'high').toLowerCase();
@@ -2330,6 +3462,28 @@ function renderDiagnosisResult(result, meta = {}) {
         <p class="confidence-caption">
           ${result.confidence >= 90 ? 'High confidence match against Kenyan agro-ecological pathology markers.' : 'Moderate confidence match based on visual symptoms. Field verification recommended.'}
         </p>
+      </div>
+
+      <!-- One-click Send Diagnosis via WhatsApp Action Bar -->
+      <div class="diagnosis-quick-share-bar">
+        <div class="quick-share-desc">
+          <span class="quick-share-icon">⚡</span>
+          <span><strong>One-Click WhatsApp Prescription:</strong> Send compiled crop, disease, registered products &amp; knapsack dosages instantly:</span>
+        </div>
+        <div class="quick-share-buttons">
+          <a id="btn-quick-wa-agrovet" href="${initialWaUrl}" target="_blank" rel="noopener noreferrer" class="btn-quick-wa btn-quick-wa-agrovet" title="One-click send compiled prescription to agrovet">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Send Diagnosis to Agrovet (Order Inputs)</span>
+          </a>
+          <a id="btn-quick-wa-worker" href="${buildWhatsAppUrl('254798981760', buildPrescriptionMessage(result, extendedMeta, 'worker'))}" target="_blank" rel="noopener noreferrer" class="btn-quick-wa btn-quick-wa-worker" title="One-click send spray guide & knapsack dosages to farm worker">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Send Spray Guide to Worker</span>
+          </a>
+          <button type="button" class="btn-quick-outline" id="quick-rx-modal-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Official Printable Rx Slip</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -2519,6 +3673,18 @@ function renderDiagnosisResult(result, meta = {}) {
         btnWaText.textContent = cleanPhone ? `Send Prescription to Agrovet (${cleanPhone})` : 'Send Prescription via WhatsApp';
       }
     }
+
+    // Keep top quick action buttons synced
+    const quickWaAgrovet = document.getElementById('btn-quick-wa-agrovet');
+    const quickWaWorker = document.getElementById('btn-quick-wa-worker');
+    if (quickWaAgrovet) {
+      const agroMsg = buildPrescriptionMessage(result, extendedMeta, 'agrovet');
+      quickWaAgrovet.href = buildWhatsAppUrl(cleanPhone, agroMsg);
+    }
+    if (quickWaWorker) {
+      const workerMsg = buildPrescriptionMessage(result, extendedMeta, 'worker');
+      quickWaWorker.href = buildWhatsAppUrl(cleanPhone, workerMsg);
+    }
   }
 
   // Audience Tabs switching
@@ -2597,6 +3763,11 @@ function renderDiagnosisResult(result, meta = {}) {
     renderPrescriptionModal(result, extendedMeta);
   });
 
+  // Top header quick print modal button
+  document.getElementById('quick-rx-modal-btn')?.addEventListener('click', () => {
+    renderPrescriptionModal(result, extendedMeta);
+  });
+
   // Modal close handlers
   const modalClose = document.getElementById('rx-modal-close');
   const modalDismiss = document.getElementById('rx-modal-dismiss-btn');
@@ -2619,15 +3790,14 @@ function renderDiagnosisResult(result, meta = {}) {
   });
 
   document.getElementById('btn-action-consult-spec')?.addEventListener('click', () => {
-    const detailsField = document.getElementById('consult-details');
-    if (detailsField) {
-      detailsField.value = `I recently scanned my ${cropName} in ${location} and received a diagnosis of "${result.diagnosis}" (${result.severity} severity). Prescribed treatments include ${result.products.slice(0, 2).join(' and ')}. I would like specialist guidance on treatment timing and management.`;
-    }
-    document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    autoPopulateConsultationForm(result, extendedMeta);
+    document.getElementById('consultation-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
 
 function renderRecommendedProducts(products) {
+  if (!productsWrap) productsWrap = document.getElementById('recommended-products');
+  if (!productsWrap) return;
   if (!products?.length) {
     productsWrap.innerHTML = '';
     return;
@@ -2636,68 +3806,179 @@ function renderRecommendedProducts(products) {
 }
 
 function renderAgrovets(requiredProducts) {
-  const locationText = (document.getElementById('farmer-location')?.value || '').trim().toLowerCase();
-  const products = requiredProducts?.length ? requiredProducts : [];
+  if (!agrovetList) agrovetList = document.getElementById('agrovet-list');
+  if (!agrovetList) return;
+  const selectedCounty = agrovetCountySelect?.value || '';
+  const selectedTown = agrovetTownSelect?.value || '';
+  const searchTerm = (agrovetSearchInput?.value || '').trim().toLowerCase();
+  const products = requiredProducts?.length ? requiredProducts : (latestDiagnosis?.products || []);
 
-  const list = smartData.agrovets
-    .map((agrovet) => {
-      const available = agrovet.products.filter((product) => {
-        if (product.stock <= 0) {
-          return false;
-        }
-        return products.length === 0 || products.some((name) => name.toLowerCase() === product.name.toLowerCase());
-      });
+  if (recommendedProductsContainer) {
+    recommendedProductsContainer.hidden = products.length === 0;
+  }
 
-      let distance = null;
-      if (userPosition) {
-        distance = haversineKm(userPosition.lat, userPosition.lng, agrovet.lat, agrovet.lng);
+  let list = smartData.agrovets.map((agrovet) => {
+    // Check available products that match diagnosis
+    const available = agrovet.products.filter((product) => {
+      if (product.stock <= 0) return false;
+      if (products.length > 0) {
+        return products.some((pName) => pName.toLowerCase() === product.name.toLowerCase());
       }
+      return true;
+    });
 
-      const countyMatch = !locationText || agrovet.county.toLowerCase().includes(locationText);
-      return { ...agrovet, available, distance, countyMatch };
-    })
-    .filter((item) => item.available.length > 0 && (userPosition || item.countyMatch));
+    let distance = null;
+    if (userPosition) {
+      distance = haversineKm(userPosition.lat, userPosition.lng, agrovet.lat, agrovet.lng);
+    }
 
+    return { ...agrovet, available, distance };
+  });
+
+  // Apply County filter
+  if (selectedCounty) {
+    list = list.filter((item) => item.county.toLowerCase() === selectedCounty.toLowerCase());
+  }
+
+  // Apply Town filter
+  if (selectedTown) {
+    list = list.filter((item) => item.town && item.town.toLowerCase() === selectedTown.toLowerCase());
+  }
+
+  // Apply Search filter (matches agrovet name, town, county, or product)
+  if (searchTerm) {
+    list = list.filter((item) => {
+      const matchName = item.name.toLowerCase().includes(searchTerm);
+      const matchTown = (item.town || '').toLowerCase().includes(searchTerm);
+      const matchCounty = item.county.toLowerCase().includes(searchTerm);
+      const matchProd = item.products.some((p) => p.name.toLowerCase().includes(searchTerm));
+      return matchName || matchTown || matchCounty || matchProd;
+    });
+  }
+
+  // Sorting
   if (userPosition) {
-    list.sort((a, b) => (a.distance ?? 999) - (b.distance ?? 999));
+    list.sort((a, b) => (a.distance ?? 9999) - (b.distance ?? 9999));
+    if (agrovetSortIndicator) {
+      agrovetSortIndicator.textContent = '📍 Sorted by closest GPS distance';
+    }
+  } else {
+    list.sort((a, b) => a.county.localeCompare(b.county) || a.name.localeCompare(b.name));
+    if (agrovetSortIndicator) {
+      agrovetSortIndicator.textContent = 'Google Map Business Register • Verified Network';
+    }
+  }
+
+  // Update results count indicator
+  if (agrovetResultsCount) {
+    let filterDescription = '';
+    if (selectedTown) {
+      filterDescription = ` in ${selectedTown}, ${selectedCounty || 'Kenya'}`;
+    } else if (selectedCounty) {
+      filterDescription = ` in ${selectedCounty} County`;
+    } else if (searchTerm) {
+      filterDescription = ` matching "${searchTerm}"`;
+    }
+    agrovetResultsCount.textContent = `Showing ${list.length} verified agrovet${list.length === 1 ? '' : 's'}${filterDescription}`;
   }
 
   if (!list.length) {
-    agrovetList.innerHTML = '<p class="meta-text">No matching agrovet stock found yet. Try updating location or contact support.</p>';
+    agrovetList.innerHTML = `
+      <div style="text-align: center; padding: 2.5rem 1rem; background: #fafdfa; border: 1px dashed #c0dec4; border-radius: 0.8rem;">
+        <p style="font-size: 1.05rem; font-weight: 700; color: #1b5e20; margin-bottom: 0.5rem;">No agrovets match your current filter.</p>
+        <p class="meta-text" style="margin-bottom: 1rem;">Try selecting "All Agricultural Counties", clearing the search keyword, or auto-detecting your GPS location.</p>
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('agrovet-reset-filters-btn')?.click()">Reset All Filters</button>
+      </div>
+    `;
     return;
   }
 
+  const cropType = document.getElementById('selected-crop')?.value || latestDiagnosis?.cropType || 'Crop';
+
   agrovetList.innerHTML = list
     .map((item) => {
-      const productLines = item.available
-        .map((p) => `<li>${escapeHtml(p.name)} - ${p.stock} in stock - KES ${p.price}</li>`)
+      const distanceBadge = item.distance != null
+        ? `<span class="finder-badge-distance">📍 ${item.distance.toFixed(1)} km away</span>`
+        : '';
+
+      const productsToDisplay = item.available.length > 0 ? item.available : item.products.slice(0, 6);
+
+      // In-stock products list with instant WhatsApp order buttons
+      const productLines = productsToDisplay
+        .map((p) => {
+          // Pre-filled message requirement:
+          // "Hello [Agrovet], I need [Product] as recommended by Kilimonet Smart Assist."
+          const prodOrderMsg = `Hello ${item.name}, I need ${p.name} as recommended by Kilimonet Smart Assist.`;
+          const prodWaUrl = buildWhatsAppUrl(cleanKenyaPhone(item.phone), prodOrderMsg);
+
+          return `
+            <li class="finder-product-item">
+              <div class="finder-prod-info">
+                <span class="finder-prod-name">${escapeHtml(p.name)}</span>
+                <span class="finder-prod-sub">${p.stock} in stock &bull; KES ${p.price.toLocaleString()}</span>
+              </div>
+              <a class="btn-product-whatsapp" href="${prodWaUrl}" target="_blank" rel="noopener noreferrer" title="Order ${escapeHtml(p.name)} via WhatsApp">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Order</span>
+              </a>
+            </li>
+          `;
+        })
         .join('');
-      const distanceText = item.distance != null ? `${item.distance.toFixed(1)} km away` : item.county;
+
       const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${item.lat},${item.lng}`;
-      const firstProduct = encodeURIComponent(item.available[0]?.name || 'input');
+      const firstProduct = encodeURIComponent(item.available[0]?.name || item.products[0]?.name || 'input');
       const reserveLink = `mailto:${encodeURIComponent('kilimointergratedagritech@gmail.com')}?subject=Product%20Reservation&body=Please%20reserve%20${firstProduct}%20at%20${encodeURIComponent(item.name)}.`;
 
-      // Build dedicated WhatsApp order link for this specific agrovet
-      const cleanPhone = cleanKenyaPhone(item.phone);
-      const cropType = document.getElementById('selected-crop')?.value || 'Crop';
-      const agrovetOrderMsg = latestDiagnosis
-        ? buildPrescriptionMessage(latestDiagnosis, { cropType, location: item.county }, 'agrovet')
-        : `Hello ${item.name}, I would like to inquire about availability and pricing for farm inputs.`;
-      const agrovetWaUrl = buildWhatsAppUrl(cleanPhone, agrovetOrderMsg);
+      // Primary WhatsApp Order Button
+      // User prompt requirement:
+      // "Instant WhatsApp order button with pre-filled message: "Hello [Agrovet], I need [Product] as recommended by Kilimonet Smart Assist.""
+      const targetProductName = products[0] || (item.available[0]?.name || item.products[0]?.name || 'farm inputs');
+      const mainOrderMsg = latestDiagnosis
+        ? `Hello ${item.name}, I need ${targetProductName} as recommended by Kilimonet Smart Assist.\n\n[Diagnostic Details]\n• Target Crop: ${cropType}\n• Condition: ${latestDiagnosis.diagnosis}\n• Location: ${item.town || item.county}`
+        : `Hello ${item.name}, I need ${targetProductName} as recommended by Kilimonet Smart Assist.`;
+
+      const agrovetWaUrl = buildWhatsAppUrl(cleanKenyaPhone(item.phone), mainOrderMsg);
 
       return `
         <article class="finder-item">
-          <h3>${escapeHtml(item.name)}</h3>
-          <p><strong>Location:</strong> ${escapeHtml(item.county)} | <strong>Distance:</strong> ${distanceText}</p>
-          <p><strong>Phone:</strong> <a href="tel:${item.phone.replace(/\s+/g, '')}">${escapeHtml(item.phone)}</a></p>
-          <ul>${productLines}</ul>
+          <div>
+            <div class="finder-item-top">
+              <div class="finder-item-title-wrap">
+                <h3>${escapeHtml(item.name)}</h3>
+                <div class="finder-item-meta">
+                  <span class="finder-badge-verified">✓ Google Business Verified</span>
+                  <span class="finder-badge-location">📍 ${escapeHtml(item.town ? `${item.town}, ${item.county}` : item.county)}</span>
+                  ${distanceBadge}
+                </div>
+              </div>
+            </div>
+
+            <p class="finder-address-text">
+              <strong>Address:</strong> ${escapeHtml(item.address || `${item.town || item.county}, Kenya`)} &bull; 
+              <strong>Phone:</strong> <a class="finder-phone-link" href="tel:${item.phone.replace(/\s+/g, '')}">${escapeHtml(item.phone)}</a>
+            </p>
+
+            <div class="finder-stock-container">
+              <div class="finder-stock-title">
+                ${item.available.length > 0 ? 'Verified In-Stock Prescribed Inputs:' : 'Available Agrochemicals & Inputs:'}
+              </div>
+              <ul class="finder-stock-list">
+                ${productLines}
+              </ul>
+            </div>
+          </div>
+
           <div class="finder-actions">
             <a class="btn btn-whatsapp-agrovet" href="${agrovetWaUrl}" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              <span>Order via WhatsApp</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Instant WhatsApp Order</span>
             </a>
             <a class="btn btn-secondary" href="tel:${item.phone.replace(/\s+/g, '')}">Call Agrovet</a>
-            <a class="btn btn-secondary" href="${mapsUrl}" target="_blank" rel="noreferrer">Directions</a>
+            <a class="btn btn-secondary" href="${mapsUrl}" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Directions
+            </a>
             <a class="btn btn-secondary" href="${reserveLink}">Reserve Product</a>
           </div>
         </article>
@@ -2706,23 +3987,283 @@ function renderAgrovets(requiredProducts) {
     .join('');
 }
 
+// Helper: Compile Specialist Consultation WhatsApp Message
+function buildSpecialistConsultMessage(specialist, diagnosis, meta = {}) {
+  const crop = meta.cropType || (diagnosis ? diagnosis.cropType : selectedCropInput?.value) || 'Crop';
+  const location = meta.location || document.getElementById('consult-county')?.value || 'Kenya';
+  const stage = meta.cropStage || document.getElementById('crop-stage')?.value || 'Vegetative / Foliage';
+  const rxId = meta.rxId || (diagnosis ? diagnosis.rxId : '');
+
+  if (diagnosis) {
+    const products = diagnosis.products?.length ? diagnosis.products.slice(0, 3).join(', ') : 'Recommended treatments';
+    return [
+      `🌿 *KILIMONET SMART ASSIST - SPECIALIST CLINICAL CONSULTATION* 🌿`,
+      `----------------------------------------`,
+      `Hello ${specialist.name}, I would like to consult you on an active crop diagnosis identified via Kilimonet Smart Assist:`,
+      ``,
+      `🌱 *Crop Type:* ${crop} (${stage})`,
+      `📍 *Farm Location:* ${location}`,
+      `⚠️ *Suspected Diagnosis:* ${diagnosis.diagnosis} [${diagnosis.severity || 'High'} Severity, ${diagnosis.confidence}% Confidence]`,
+      diagnosis.localSwahiliName ? `🇰🇪 *Swahili Identification:* ${diagnosis.localSwahiliName}` : null,
+      rxId ? `🔢 *Prescription Ref:* ${rxId}` : null,
+      `💊 *Recommended Agrochemicals:* ${products}`,
+      meta.hasPhoto ? `📷 *Specimen Photo:* Scanned leaf specimen attached in Kilimonet Case File` : null,
+      ``,
+      `💬 *Clinical Case Query:* Please assist in verifying these symptoms on my crop, advising on tank mix compatibility/rotation, and safety withholding intervals before harvest.`,
+      `----------------------------------------`,
+      `_Dispatch Case generated via Kilimonet Integrated Agrisystems_`
+    ].filter(Boolean).join('\n');
+  }
+
+  return [
+    `🌿 *KILIMONET SMART ASSIST - SPECIALIST AGRONOMY CONSULTATION* 🌿`,
+    `----------------------------------------`,
+    `Hello ${specialist.name}, I am a farmer on Kilimonet Smart Assist.`,
+    `I would like to consult you regarding *${specialist.specialization}* for my farm located in ${location !== 'Kenya' ? location : specialist.county}.`,
+    ``,
+    `Please let me know your availability for a phone or WhatsApp consultation.`,
+    `----------------------------------------`,
+    `_Kilimonet Integrated Agrisystems | Hotline: +254 798 981 760_`
+  ].join('\n');
+}
+
+// Auto-populate specialist consultation form with farmer's latest diagnosis & photo
+function autoPopulateConsultationForm(diagnosis, meta = {}) {
+  if (!diagnosis) return;
+
+  const cropName = meta.cropType || latestDiagnosis?.cropType || selectedCropInput?.value || 'Crop';
+  const location = meta.location || document.getElementById('consult-county')?.value || 'Kenya';
+  const cropStage = meta.cropStage || document.getElementById('crop-stage')?.value || 'Vegetative / Foliage';
+  const rxId = meta.rxId || `RX-KILI-${new Date().getFullYear()}-${Math.floor(100000 + (Date.now() % 900000))}`;
+
+  // Show preview attachment card & hide empty notice
+  if (consultDiagnosisPreview) consultDiagnosisPreview.hidden = false;
+  if (consultNoDiagnosisNotice) consultNoDiagnosisNotice.hidden = true;
+
+  // Set photo specimen from latest scanner upload/camera or sample
+  if (consultAttachedPhoto) {
+    if (latestImage?.dataUrl) {
+      consultAttachedPhoto.src = latestImage.dataUrl;
+      if (consultPhotoLabel) {
+        consultPhotoLabel.textContent = latestImage.fileName ? `📷 ${latestImage.fileName.slice(0, 18)}` : '📷 Field Specimen';
+      }
+    } else {
+      consultAttachedPhoto.src = generateSampleLeafSvg('maize-armyworm');
+      if (consultPhotoLabel) consultPhotoLabel.textContent = '📷 Field Specimen';
+    }
+  }
+
+  if (consultAttachCropDiag) {
+    consultAttachCropDiag.innerHTML = `${escapeHtml(cropName)} &bull; ${escapeHtml(diagnosis.diagnosis)}`;
+  }
+  if (consultAttachSeverity) {
+    const sev = (diagnosis.severity || 'high').toLowerCase();
+    consultAttachSeverity.className = `severity-badge-mini ${sev}`;
+    consultAttachSeverity.textContent = `${diagnosis.severity || 'High'} Severity`;
+  }
+  if (consultAttachMeta) {
+    consultAttachMeta.textContent = `${diagnosis.confidence}% Confidence Match • ${location} • Rx: ${rxId}`;
+  }
+  if (consultAttachProducts) {
+    const prods = (diagnosis.products || ['Recommended agrochemicals']).slice(0, 4);
+    consultAttachProducts.innerHTML = prods
+      .map((p) => `<span class="chip-mini">${escapeHtml(p)}</span>`)
+      .join('');
+  }
+
+  // Pre-fill form fields
+  const countyField = document.getElementById('consult-county');
+  if (countyField && (!countyField.value.trim() || countyField.value === 'Kenya')) {
+    countyField.value = location !== 'Kenya' ? location : (agrovetCountySelect?.value || 'Kiambu');
+  }
+
+  const detailsField = document.getElementById('consult-details');
+  if (detailsField) {
+    const treatments = (diagnosis.products || []).slice(0, 3).join(', ');
+    detailsField.value = [
+      `[AUTO-POPULATED DIAGNOSTIC CASE - REF: ${rxId}]`,
+      `• Crop Type & Stage: ${cropName} (${cropStage})`,
+      `• Farm Location: ${location}`,
+      `• Clinical Diagnosis: ${diagnosis.diagnosis} (${diagnosis.severity || 'High'} severity, ${diagnosis.confidence}% match)`,
+      diagnosis.localSwahiliName ? `• Local Swahili Name: ${diagnosis.localSwahiliName}` : null,
+      `• Prescribed Treatments: ${treatments}`,
+      `• Safety Withholding (PHI): ${diagnosis.withholdingPeriod?.days || 7} Days`,
+      `• Specimen Photo: Attached from leaf scanner`,
+      ``,
+      `• Farmer Request: I need specialist verification of this condition, confirmation of product rotation, and spray timing advisory to protect the rest of the crop.`
+    ].filter(Boolean).join('\n');
+  }
+
+  // Update direct WhatsApp consultation button
+  updateConsultationWhatsAppBtn();
+}
+
+function updateConsultationWhatsAppBtn() {
+  if (!consultDirectWaBtn) return;
+
+  const specId = consultSpecialistAssignee?.value || '';
+  const selectedSpec = (smartData.specialists && smartData.specialists.find((s) => s.id === specId)) || (smartData.specialists && smartData.specialists[0]) || {
+    id: 'central-dispatch',
+    name: 'Kilimonet Central Agronomy Desk',
+    title: 'Duty Pathologist',
+    phone: '0798981760',
+    specialization: 'Crop Health & Pest Diagnostics',
+    availability: 'available'
+  };
+
+  const meta = {
+    cropType: selectedCropInput?.value || latestDiagnosis?.cropType || 'Crop',
+    location: document.getElementById('consult-county')?.value || 'Kenya',
+    cropStage: document.getElementById('crop-stage')?.value || 'Vegetative',
+    rxId: latestDiagnosis?.rxId,
+    hasPhoto: !!latestImage
+  };
+
+  const msg = buildSpecialistConsultMessage(selectedSpec, latestDiagnosis, meta);
+  const waUrl = buildWhatsAppUrl(cleanKenyaPhone(selectedSpec.phone || '0798981760'), msg);
+
+  consultDirectWaBtn.href = waUrl;
+  consultDirectWaBtn.hidden = false;
+  if (consultWaBtnText) {
+    const displayName = selectedSpec.name.includes(' ') ? selectedSpec.name.split(' ')[0] : selectedSpec.name;
+    consultWaBtnText.textContent = `Consult ${displayName} on WhatsApp`;
+  }
+}
+
 function renderSpecialists() {
+  if (!specialistList) specialistList = document.getElementById('specialist-list');
+  if (!specialistList) return;
+
+  const availableCount = (smartData.specialists || []).filter((s) => s.availability === 'available').length;
+  if (specialistsAvailableCount) {
+    if (availableCount > 0) {
+      specialistsAvailableCount.textContent = `${availableCount} Agronomist${availableCount === 1 ? '' : 's'} Online Now`;
+    } else {
+      specialistsAvailableCount.textContent = 'Duty Desk Online';
+    }
+  }
+
+  // Populate specialist assignee select in consultation form
+  if (consultSpecialistAssignee) {
+    const currentVal = consultSpecialistAssignee.value;
+    if (smartData.specialists && smartData.specialists.length) {
+      consultSpecialistAssignee.innerHTML = `
+        <option value="">Any Available Agronomist (Fastest Dispatch)</option>
+        ${smartData.specialists.map((s) => `<option value="${s.id}">${escapeHtml(s.name)} - ${escapeHtml(s.specialization)} (${s.availability})</option>`).join('')}
+      `;
+    } else {
+      consultSpecialistAssignee.innerHTML = `
+        <option value="">Kilimonet Central Agronomy Dispatch Desk (Fastest Route)</option>
+      `;
+    }
+    if (currentVal) consultSpecialistAssignee.value = currentVal;
+  }
+
+  const meta = {
+    cropType: selectedCropInput?.value || latestDiagnosis?.cropType || 'Crop',
+    location: document.getElementById('consult-county')?.value || 'Kenya',
+    cropStage: document.getElementById('crop-stage')?.value || 'Vegetative',
+    rxId: latestDiagnosis?.rxId,
+    hasPhoto: !!latestImage
+  };
+
+  if (!smartData.specialists || !smartData.specialists.length) {
+    const centralDeskSpec = {
+      name: 'Kilimonet Central Agronomy Desk',
+      specialization: 'Integrated Pest Management & Crop Diagnostics',
+      phone: '0798981760'
+    };
+    const dutyWaUrl = buildWhatsAppUrl('254798981760', buildSpecialistConsultMessage(centralDeskSpec, latestDiagnosis, meta));
+
+    specialistList.innerHTML = `
+      <div class="specialist-empty-state" style="grid-column: 1 / -1; background: #ffffff; border: 1.5px dashed #a5d6a7; border-radius: 0.85rem; padding: 2rem 1.5rem; text-align: center;">
+        <span style="font-size: 2.2rem; display: block; margin-bottom: 0.5rem;" aria-hidden="true">👨‍🌾</span>
+        <h3 style="margin: 0 0 0.4rem; font-size: 1.1rem; color: #1b5e20;">Kilimonet On-Demand Specialist Dispatch</h3>
+        <p class="meta-text" style="max-width: 580px; margin: 0 auto 1.2rem; font-size: 0.85rem; line-height: 1.45;">
+          Agronomy specialists are dispatched dynamically based on case severity and county location. Submit the consultation dispatch form below or chat directly with the Kilimonet Central Agronomy Desk.
+        </p>
+        <a class="btn btn-whatsapp-specialist" href="${dutyWaUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; width: auto; max-width: 340px; margin: 0 auto;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>💬 Chat with Central Agronomy Desk</span>
+        </a>
+      </div>
+    `;
+    updateConsultationWhatsAppBtn();
+    return;
+  }
+
   specialistList.innerHTML = smartData.specialists
     .map((specialist) => {
+      const isOnline = specialist.availability === 'available';
+      const cleanPhone = cleanKenyaPhone(specialist.phone);
+      const waMsg = buildSpecialistConsultMessage(specialist, latestDiagnosis, meta);
+      const waUrl = buildWhatsAppUrl(cleanPhone, waMsg);
+
       return `
-        <article class="specialist-item">
-          <h3>${escapeHtml(specialist.name)}</h3>
-          <p><strong>Specialization:</strong> ${escapeHtml(specialist.specialization)}</p>
-          <p><strong>Status:</strong> ${escapeHtml(specialist.availability)}</p>
-          <p><strong>County:</strong> ${escapeHtml(specialist.county)}</p>
-          <p><a href="tel:${specialist.phone.replace(/\s+/g, '')}">${escapeHtml(specialist.phone)}</a></p>
+        <article class="specialist-card ${isOnline ? 'is-available' : ''}" id="spec-card-${specialist.id}">
+          <div>
+            <div class="specialist-card-top">
+              <div class="specialist-avatar-wrap">
+                <div class="specialist-avatar" aria-hidden="true">${specialist.avatarIcon || '👨‍🌾'}</div>
+                <span class="specialist-status-dot ${isOnline ? 'online' : 'busy'}" title="${isOnline ? 'Online' : 'Busy'}"></span>
+              </div>
+              <div class="specialist-info">
+                <div class="specialist-name-row">
+                  <h3 class="specialist-name">${escapeHtml(specialist.name)}</h3>
+                  <span class="badge-status ${isOnline ? 'available' : 'busy'}">
+                    ${isOnline ? '🟢 Available' : '🟡 In Consultation'}
+                  </span>
+                </div>
+                <div class="specialist-title">${escapeHtml(specialist.title || 'Senior Agronomist')}</div>
+                <div class="specialist-spec">${escapeHtml(specialist.specialization)}</div>
+              </div>
+            </div>
+
+            <div class="specialist-tags-row">
+              <span class="specialist-tag">📍 ${escapeHtml(specialist.county)}</span>
+              ${specialist.rating ? `<span class="specialist-tag">${escapeHtml(specialist.rating)}</span>` : ''}
+              ${specialist.languages ? `<span class="specialist-tag">🗣️ ${escapeHtml(specialist.languages)}</span>` : ''}
+              ${specialist.crops ? `<span class="specialist-tag">🌱 Focus: ${escapeHtml(specialist.crops)}</span>` : ''}
+            </div>
+          </div>
+
+          <div class="specialist-actions">
+            <a class="btn-whatsapp-specialist" href="${waUrl}" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Consult Specialist on WhatsApp</span>
+            </a>
+            <div class="specialist-sub-actions">
+              <a class="btn-spec-action" href="tel:${specialist.phone.replace(/\s+/g, '')}">
+                📞 Call Specialist
+              </a>
+              <button type="button" class="btn-spec-action btn-select-specialist" data-spec-id="${specialist.id}">
+                📝 Select in Form
+              </button>
+            </div>
+          </div>
         </article>
       `;
     })
     .join('');
+
+  // Wire up "Select in Form" buttons
+  document.querySelectorAll('.btn-select-specialist').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const specId = btn.getAttribute('data-spec-id');
+      if (consultSpecialistAssignee) {
+        consultSpecialistAssignee.value = specId;
+      }
+      updateConsultationWhatsAppBtn();
+      document.getElementById('consultation-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+
+  updateConsultationWhatsAppBtn();
 }
 
 function renderAdvisories() {
+  if (!advisoryList) advisoryList = document.getElementById('advisory-list');
+  if (!advisoryList) return;
   const list = smartData.advisories.slice(0, 12);
   if (!list.length) {
     advisoryList.innerHTML = '<p class="meta-text">No advisories published yet.</p>';
@@ -2741,42 +4282,469 @@ function renderAdvisories() {
 }
 
 function renderAgrovetOptions() {
-  const options = smartData.agrovets
+  if (!agrovetSelect) agrovetSelect = document.getElementById('agrovet-select');
+  if (!agrovetSelect) return;
+  const prevVal = agrovetSelect.value;
+  const options = (smartData.agrovets || [])
     .map((item) => `<option value="${item.id}">${escapeHtml(item.name)} (${escapeHtml(item.county)})</option>`)
     .join('');
-  agrovetSelect.innerHTML = `<option value="">Select agrovet</option>${options}`;
+  agrovetSelect.innerHTML = options;
+  if (prevVal && smartData.agrovets.some((a) => a.id === prevVal)) {
+    agrovetSelect.value = prevVal;
+  }
 }
 
 function renderSpecialistOptions() {
-  const options = smartData.specialists
-    .map((item) => `<option value="${item.id}">${escapeHtml(item.name)} (${escapeHtml(item.specialization)})</option>`)
-    .join('');
-  specialistSelect.innerHTML = `<option value="">Select specialist</option>${options}`;
+  // Maintained for backward compatibility
+}
+
+function openAdminPortal(initialTab = null) {
+  if (!adminPortalModal) return;
+  adminPortalModal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  hydrateAdminSession();
+  if (initialTab) {
+    switchPortalTab(initialTab);
+  }
+}
+
+function closeAdminPortal() {
+  if (!adminPortalModal) return;
+  adminPortalModal.hidden = true;
+  document.body.style.overflow = '';
+}
+
+function switchPortalTab(tabKey) {
+  portalTabs.forEach((tab) => {
+    const isTarget = tab.getAttribute('data-portal-tab') === tabKey;
+    tab.classList.toggle('active', isTarget);
+    tab.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+  });
+
+  if (panelInventoryEditor) panelInventoryEditor.hidden = tabKey !== 'inventory';
+  if (panelAdvisoryPublisher) panelAdvisoryPublisher.hidden = tabKey !== 'advisories';
+  if (panelInquiryReviewer) panelInquiryReviewer.hidden = tabKey !== 'inquiries';
+
+  if (tabKey === 'inventory') renderPortalInventoryTable();
+  if (tabKey === 'advisories') renderPortalAdvisoriesList();
+  if (tabKey === 'inquiries') renderPortalInquiries();
+}
+
+function updatePortalBadges() {
+  if (countAgrovetsBadge) {
+    const totalCount = (smartData.agrovets || []).length;
+    countAgrovetsBadge.textContent = totalCount;
+  }
+  if (countAdvisoriesBadge) {
+    countAdvisoriesBadge.textContent = (smartData.advisories || []).length;
+  }
+  if (countInquiriesBadge) {
+    const pendingCount = (smartData.consultations || []).filter((c) => c.status !== 'resolved').length;
+    countInquiriesBadge.textContent = pendingCount;
+  }
+}
+
+function renderPortalInventoryTable() {
+  if (!agrovetSelect) agrovetSelect = document.getElementById('agrovet-select');
+  if (!inventoryTableBody) inventoryTableBody = document.getElementById('inventory-table-body');
+  if (!agrovetSelect || !inventoryTableBody) return;
+
+  if (!agrovetSelect.children.length) {
+    renderAgrovetOptions();
+  }
+
+  const selectedAgrovetId = agrovetSelect.value || (smartData.agrovets[0] && smartData.agrovets[0].id);
+  if (!agrovetSelect.value && selectedAgrovetId) {
+    agrovetSelect.value = selectedAgrovetId;
+  }
+
+  const agrovet = (smartData.agrovets || []).find((a) => a.id === selectedAgrovetId) || smartData.agrovets[0];
+  if (!agrovet) {
+    inventoryTableBody.innerHTML = '<tr><td colspan="6" class="text-center meta-text" style="padding:1.5rem; text-align:center;">No registered agrovet selected.</td></tr>';
+    return;
+  }
+
+  const products = agrovet.products || [];
+  if (!products.length) {
+    inventoryTableBody.innerHTML = '<tr><td colspan="6" class="text-center meta-text" style="padding:1.5rem; text-align:center;">No inputs in catalog yet. Add agrochemicals or seeds below.</td></tr>';
+    return;
+  }
+
+  inventoryTableBody.innerHTML = products.map((prod, index) => {
+    let stockClass = 'in-stock';
+    let stockLabel = '✓ In Stock';
+    if (prod.stock === 0) {
+      stockClass = 'out-stock';
+      stockLabel = '✕ Out of Stock';
+    } else if (prod.stock <= 5) {
+      stockClass = 'low-stock';
+      stockLabel = `⚠️ Low Stock (${prod.stock})`;
+    }
+
+    return `
+      <tr>
+        <td>
+          <strong style="color:var(--text);">${escapeHtml(prod.name)}</strong>
+        </td>
+        <td>
+          <span style="font-weight:700; color:#1b5e20;">KES ${Number(prod.price || 0).toLocaleString()}</span>
+        </td>
+        <td>
+          <span style="font-weight:800; font-size:1.02rem;">${prod.stock}</span> <small style="color:var(--muted)">units</small>
+        </td>
+        <td>
+          <span class="table-stock-badge ${stockClass}">${stockLabel}</span>
+        </td>
+        <td>
+          <div class="stock-adjust-group">
+            <button type="button" class="btn-stock-adjust" data-action="adjust-stock" data-idx="${index}" data-delta="5" title="Add 5 units">+5</button>
+            <button type="button" class="btn-stock-adjust" data-action="adjust-stock" data-idx="${index}" data-delta="1" title="Add 1 unit">+1</button>
+            <button type="button" class="btn-stock-adjust" data-action="adjust-stock" data-idx="${index}" data-delta="-1" title="Deduct 1 unit">-1</button>
+            <button type="button" class="btn-stock-adjust" data-action="adjust-stock" data-idx="${index}" data-delta="-5" title="Deduct 5 units">-5</button>
+          </div>
+        </td>
+        <td>
+          <button type="button" class="btn-table-del" data-action="delete-product" data-idx="${index}" title="Remove Product from inventory">🗑️ Delete</button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+
+  // Wire inline table action listeners
+  inventoryTableBody.querySelectorAll('[data-action="adjust-stock"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.getAttribute('data-idx'));
+      const delta = Number(btn.getAttribute('data-delta'));
+      if (agrovet.products[idx]) {
+        agrovet.products[idx].stock = Math.max(0, (agrovet.products[idx].stock || 0) + delta);
+        persistSmartData();
+        renderPortalInventoryTable();
+        updatePortalBadges();
+        if (latestDiagnosis?.products?.length) {
+          renderAgrovets(latestDiagnosis.products);
+        }
+      }
+    });
+  });
+
+  inventoryTableBody.querySelectorAll('[data-action="delete-product"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.getAttribute('data-idx'));
+      const prodName = agrovet.products[idx]?.name || 'product';
+      agrovet.products.splice(idx, 1);
+      persistSmartData();
+      renderPortalInventoryTable();
+      updatePortalBadges();
+      showFeedback(adminFeedback, `Removed "${prodName}" from ${agrovet.name} inventory.`);
+      if (latestDiagnosis?.products?.length) {
+        renderAgrovets(latestDiagnosis.products);
+      }
+    });
+  });
+}
+
+function renderPortalAdvisoriesList() {
+  if (!portalAdvisoriesList) portalAdvisoriesList = document.getElementById('portal-advisories-list');
+  if (!portalAdvisoriesList) return;
+  const list = smartData.advisories || [];
+  if (!list.length) {
+    portalAdvisoriesList.innerHTML = '<p class="meta-text" style="padding:1.5rem; text-align:center;">No published advisories active. Broadcast a new one above.</p>';
+    return;
+  }
+
+  portalAdvisoriesList.innerHTML = list.map((item, index) => {
+    const priority = item.priority || (item.title?.toLowerCase().includes('alert') ? 'Urgent' : 'Advisory');
+    const badgeColor = priority === 'Urgent' ? '#b91c1c' : priority === 'Advisory' ? '#d97706' : '#2563eb';
+    const badgeBg = priority === 'Urgent' ? '#fee2e2' : priority === 'Advisory' ? '#fef3c7' : '#eff6ff';
+
+    return `
+      <div class="advisory-portal-card">
+        <div style="flex:1;">
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.35rem; flex-wrap:wrap;">
+            <span style="font-size:0.7rem; font-weight:800; text-transform:uppercase; padding:0.15rem 0.5rem; border-radius:9999px; background:${badgeBg}; color:${badgeColor}; border:1px solid ${badgeColor}40;">
+              ${priority === 'Urgent' ? '🚨 ' : ''}${priority}
+            </span>
+            <span class="advisory-meta-tag">📍 ${escapeHtml(item.region || 'National')}</span>
+            <span style="font-size:0.72rem; color:var(--muted)">📅 ${escapeHtml(item.createdAt || 'Recent')}</span>
+          </div>
+          <h6 style="margin:0 0 0.25rem; font-size:0.95rem; font-weight:800; color:var(--text);">${escapeHtml(item.title)}</h6>
+          <p style="margin:0 0 0.4rem; font-size:0.83rem; line-height:1.45; color:var(--text);">${escapeHtml(item.message)}</p>
+          <div style="font-size:0.74rem; color:var(--muted); font-weight:600;">
+            Authority: <span style="color:#1b5e20; font-weight:700;">${escapeHtml(item.source || 'Pathology Specialist')}</span>
+          </div>
+        </div>
+        <button type="button" class="btn-table-del" data-action="retract-advisory" data-idx="${index}" style="align-self:flex-start;" title="Retract advisory from directory">
+          🗑️ Retract
+        </button>
+      </div>
+    `;
+  }).join('');
+
+  portalAdvisoriesList.querySelectorAll('[data-action="retract-advisory"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.getAttribute('data-idx'));
+      const removed = smartData.advisories.splice(idx, 1);
+      persistSmartData();
+      renderPortalAdvisoriesList();
+      renderAdvisories();
+      updatePortalBadges();
+      showFeedback(adminFeedback, `Retracted advisory "${removed[0]?.title || 'Notice'}".`);
+    });
+  });
+}
+
+function renderPortalInquiries() {
+  if (!portalInquiriesList) portalInquiriesList = document.getElementById('portal-inquiries-list');
+  if (!portalInquiriesList) return;
+
+  const allInquiries = smartData.consultations || [];
+  const pendingCount = allInquiries.filter((c) => c.status !== 'resolved').length;
+  const resolvedCount = allInquiries.filter((c) => c.status === 'resolved').length;
+
+  if (inqCountAll) inqCountAll.textContent = allInquiries.length;
+  if (inqCountPending) inqCountPending.textContent = pendingCount;
+  if (inqCountResolved) inqCountResolved.textContent = resolvedCount;
+  if (countInquiriesBadge) countInquiriesBadge.textContent = pendingCount;
+
+  let filtered = allInquiries;
+  if (currentInquiryFilter === 'pending') {
+    filtered = allInquiries.filter((c) => c.status !== 'resolved');
+  } else if (currentInquiryFilter === 'resolved') {
+    filtered = allInquiries.filter((c) => c.status === 'resolved');
+  }
+
+  if (!filtered.length) {
+    portalInquiriesList.innerHTML = `
+      <div style="text-align:center; padding:2.5rem 1rem; background:#ffffff; border-radius:0.75rem; border:1px dashed #cfe0d1;">
+        <span style="font-size:2rem; display:block; margin-bottom:0.5rem;">📋</span>
+        <h5 style="margin:0 0 0.35rem; color:#1b5e20;">No inquiries in "${currentInquiryFilter}" view</h5>
+        <p class="meta-text">All smallholder inquiries in this category have been attended to.</p>
+      </div>
+    `;
+    return;
+  }
+
+  portalInquiriesList.innerHTML = filtered.map((inq) => {
+    const isResolved = inq.status === 'resolved';
+    const cardClass = isResolved ? 'is-resolved' : 'is-pending';
+
+    // Status pill
+    let statusPill = '<span style="font-size:0.72rem; font-weight:800; background:#fef3c7; color:#92400e; padding:0.15rem 0.55rem; border-radius:9999px; border:1px solid #fde68a;">⏳ Pending Review</span>';
+    if (inq.status === 'in-progress') {
+      statusPill = '<span style="font-size:0.72rem; font-weight:800; background:#eff6ff; color:#1e40af; padding:0.15rem 0.55rem; border-radius:9999px; border:1px solid #bfdbfe;">🔄 In Progress</span>';
+    } else if (isResolved) {
+      statusPill = '<span style="font-size:0.72rem; font-weight:800; background:#dcfce7; color:#166534; padding:0.15rem 0.55rem; border-radius:9999px; border:1px solid #bbf7d0;">✅ Resolved</span>';
+    }
+
+    // Urgency pill
+    const isHighUrgency = (inq.urgency || '').toLowerCase().includes('high') || (inq.urgency || '').toLowerCase().includes('critical');
+    const urgencyPill = `<span style="font-size:0.72rem; font-weight:800; padding:0.15rem 0.55rem; border-radius:9999px; background:${isHighUrgency ? '#fee2e2' : '#f0fdf4'}; color:${isHighUrgency ? '#991b1b' : '#166534'}; border:1px solid ${isHighUrgency ? '#fecaca' : '#bbf7d0'};">🚨 ${escapeHtml(inq.urgency || 'Standard')}</span>`;
+
+    // Mode pill
+    const modePill = `<span style="font-size:0.72rem; font-weight:700; background:#f1f5f9; color:#334155; padding:0.15rem 0.5rem; border-radius:9999px;">${escapeHtml(inq.mode || 'WhatsApp')}</span>`;
+
+    // Leaf Specimen Thumbnail SVG
+    const specimenThumbnail = `
+      <div class="inquiry-thumb-wrap" title="Attached Field Leaf Specimen: ${escapeHtml(inq.photoName || 'Laboratory Specimen')}">
+        <svg viewBox="0 0 800 600" width="90" height="90" style="width:100%; height:100%; display:block; border-radius:0.5rem;">
+          <defs>
+            <linearGradient id="thumb-grad-${inq.id}" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4a7c59" />
+              <stop offset="100%" stop-color="#24442a" />
+            </linearGradient>
+          </defs>
+          <rect width="800" height="600" fill="#f4faf5"/>
+          <path d="M 400 60 C 220 180 200 440 400 540 C 600 440 580 180 400 60 Z" fill="url(#thumb-grad-${inq.id})"/>
+          <path d="M 400 60 L 400 540" stroke="#a3b18a" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 400 200 Q 320 180 270 210" stroke="#a3b18a" stroke-width="5" fill="none"/>
+          <path d="M 400 260 Q 480 240 530 270" stroke="#a3b18a" stroke-width="5" fill="none"/>
+          <path d="M 400 320 Q 320 300 270 330" stroke="#a3b18a" stroke-width="5" fill="none"/>
+          <path d="M 400 380 Q 480 360 530 390" stroke="#a3b18a" stroke-width="5" fill="none"/>
+        </svg>
+      </div>
+    `;
+
+    // Clean phone number for WhatsApp & Call
+    const cleanPhone = cleanKenyaPhone(inq.contact);
+    const waReplyMsg = encodeURIComponent(
+      `Hello ${inq.name},\nThis is Kilimonet Agronomy Operations regarding your clinical inquiry #${inq.id}.\n\n` +
+      `• Case: ${inq.crop} - ${inq.diagnosis || 'Pathogen Inspection'}\n` +
+      `• Location: ${inq.county}\n` +
+      `• Assigned Agronomist: ${inq.specialistName || 'Kilimonet On-Duty Agronomist'}\n\n` +
+      `We reviewed your case details and attached field leaf specimen. How are the symptoms progressing today?`
+    );
+    const waReplyUrl = `https://wa.me/${cleanPhone}?text=${waReplyMsg}`;
+
+    // Treatment products chips
+    const productsHtml = Array.isArray(inq.products) && inq.products.length
+      ? inq.products.map((p) => `<span style="display:inline-block; font-size:0.7rem; font-weight:700; background:#e8f5e9; color:#1b5e20; padding:0.1rem 0.45rem; border-radius:9999px; margin-right:0.25rem;">💊 ${escapeHtml(p)}</span>`).join('')
+      : '';
+
+    return `
+      <article class="inquiry-card ${cardClass}" data-inquiry-id="${inq.id}">
+        <div class="inquiry-card-head">
+          <div>
+            <h5 class="inquiry-farmer-title">
+              ${escapeHtml(inq.name)}
+              <span style="font-size:0.78rem; font-weight:600; color:var(--muted); margin-left:0.4rem;">(#${escapeHtml(inq.id)})</span>
+            </h5>
+            <div style="font-size:0.78rem; color:var(--muted); margin-top:0.2rem;">
+              📍 <strong>${escapeHtml(inq.county)}</strong> • 📞 <strong>${escapeHtml(inq.contact)}</strong>
+            </div>
+          </div>
+          <div class="inquiry-badge-row">
+            ${statusPill}
+            ${urgencyPill}
+            ${modePill}
+          </div>
+        </div>
+
+        <div class="inquiry-card-body">
+          ${specimenThumbnail}
+          <div class="inquiry-details-wrap">
+            <div class="inquiry-diagnosis-box">
+              <strong>🔬 Attached Diagnosis:</strong> ${escapeHtml(inq.crop)} — <strong>${escapeHtml(inq.diagnosis || 'Clinical Crop Health Case')}</strong>
+              ${inq.severity ? `<span style="margin-left:0.35rem; color:#b91c1c; font-weight:700;">[Severity: ${escapeHtml(inq.severity)}]</span>` : ''}
+              ${inq.confidence ? `<span style="margin-left:0.35rem; color:#166534; font-weight:700;">(${inq.confidence}% Match)</span>` : ''}
+              ${productsHtml ? `<div style="margin-top:0.35rem;">${productsHtml}</div>` : ''}
+            </div>
+
+            <div class="inquiry-case-text">${escapeHtml(inq.details || 'Farmer submitted clinical request with crop diagnosis and photo.')}</div>
+
+            <div style="margin-top:0.45rem; font-size:0.75rem; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+              <span>👨‍🌾 Assigned Agronomist: <strong style="color:#1b5e20;">${escapeHtml(inq.specialistName || 'Kilimonet Pathology Lead')}</strong></span>
+              <span>🕒 Created: ${new Date(inq.createdAt || Date.now()).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="inquiry-actions-row">
+          <div class="inquiry-contact-links">
+            <a class="btn-inquiry-wa" href="${waReplyUrl}" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <span>Reply on WhatsApp</span>
+            </a>
+            <a class="btn-inquiry-call" href="tel:${escapeHtml(inq.contact)}">
+              📞 Call Farmer
+            </a>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            ${inq.status !== 'resolved' ? `
+              <button type="button" class="btn-inquiry-status" data-action="toggle-status" data-inquiry-id="${inq.id}" data-new-status="resolved" style="background:#e8f5e9; color:#1b5e20; border-color:#a5d6a7;">
+                ✓ Mark Resolved
+              </button>
+            ` : `
+              <button type="button" class="btn-inquiry-status" data-action="toggle-status" data-inquiry-id="${inq.id}" data-new-status="pending" style="background:#fffbeb; color:#92400e; border-color:#fde68a;">
+                🔄 Reopen Ticket
+              </button>
+            `}
+            ${inq.status === 'pending' ? `
+              <button type="button" class="btn-inquiry-status" data-action="toggle-status" data-inquiry-id="${inq.id}" data-new-status="in-progress">
+                ⏳ Mark In Progress
+              </button>
+            ` : ''}
+            <button type="button" class="btn-inquiry-delete" data-action="delete-inquiry" data-inquiry-id="${inq.id}">
+              Archive
+            </button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  // Wire up status toggle and archive
+  portalInquiriesList.querySelectorAll('[data-action="toggle-status"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-inquiry-id');
+      const newStatus = btn.getAttribute('data-new-status');
+      const ticket = smartData.consultations.find((c) => c.id === id);
+      if (ticket) {
+        ticket.status = newStatus;
+        persistSmartData();
+        renderPortalInquiries();
+        updatePortalBadges();
+        showFeedback(adminFeedback, `Updated ticket #${id} status to "${newStatus}".`);
+      }
+    });
+  });
+
+  portalInquiriesList.querySelectorAll('[data-action="delete-inquiry"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-inquiry-id');
+      const idx = smartData.consultations.findIndex((c) => c.id === id);
+      if (idx !== -1) {
+        smartData.consultations.splice(idx, 1);
+        persistSmartData();
+        renderPortalInquiries();
+        updatePortalBadges();
+        showFeedback(adminFeedback, `Archived consultation ticket #${id}.`);
+      }
+    });
+  });
 }
 
 function hydrateAdminSession() {
   const session = parseJson(sessionStorage.getItem('kili_admin_session'));
   if (session?.role) {
     renderAdminSession(session);
+  } else {
+    if (portalAuthView) portalAuthView.hidden = false;
+    if (portalDashboardView) portalDashboardView.hidden = true;
+    if (portalRoleBadge) portalRoleBadge.hidden = true;
+    if (portalSessionStatus) portalSessionStatus.textContent = 'Demo: agrovetadmin / specialistadmin';
   }
 }
 
 function renderAdminSession(session) {
-  adminAuthWrap.hidden = true;
-  adminDashboard.hidden = false;
-  adminRoleLabel.textContent = `Signed in as ${session.username} (${session.role} admin)`;
+  if (portalAuthView) portalAuthView.hidden = true;
+  if (portalDashboardView) portalDashboardView.hidden = false;
 
-  const allowAgrovet = session.role === 'agrovet' || session.role === 'system';
-  const allowSpecialist = session.role === 'specialist' || session.role === 'system';
-  agrovetPanel.hidden = !allowAgrovet;
-  specialistPanel.hidden = !allowSpecialist;
+  let roleLabel = 'Administrator';
+  let badgeLabel = 'Staff Admin';
+  if (session.role === 'agrovet') {
+    roleLabel = 'Agrovet Hub Manager';
+    badgeLabel = 'Agrovet Admin';
+  } else if (session.role === 'specialist') {
+    roleLabel = 'Senior Pathologist & Agronomist';
+    badgeLabel = 'Specialist Admin';
+  } else if (session.role === 'system') {
+    roleLabel = 'Master Operations Lead';
+    badgeLabel = 'Master Admin';
+  }
+
+  if (adminRoleLabel) {
+    adminRoleLabel.textContent = `Signed in as ${session.username} (${roleLabel})`;
+  }
+  if (portalRoleBadge) {
+    portalRoleBadge.hidden = false;
+    portalRoleBadge.textContent = badgeLabel;
+  }
+  if (portalSessionStatus) {
+    portalSessionStatus.textContent = `Active Session: ${session.username} (${badgeLabel})`;
+  }
+
+  // Choose default tab
+  if (session.role === 'agrovet') {
+    switchPortalTab('inventory');
+  } else if (session.role === 'specialist') {
+    switchPortalTab('inquiries');
+  } else {
+    switchPortalTab('inventory');
+  }
+
+  updatePortalBadges();
 }
 
 function loadSmartData() {
   const stored = parseJson(localStorage.getItem(SMART_STORAGE_KEY));
-  if (!stored || !stored.agrovets || !stored.specialists) {
+  if (!stored || !stored.agrovets || !Array.isArray(stored.specialists) || stored.agrovets.length < 15) {
     localStorage.setItem(SMART_STORAGE_KEY, JSON.stringify(DEFAULT_DATA));
-    return structuredClone(DEFAULT_DATA);
+    return JSON.parse(JSON.stringify(DEFAULT_DATA));
+  }
+  if (stored.specialists && stored.specialists.some((s) => s.id && s.id.startsWith('sp-'))) {
+    stored.specialists = [];
+    localStorage.setItem(SMART_STORAGE_KEY, JSON.stringify(stored));
   }
   return stored;
 }
@@ -2802,15 +4770,21 @@ function isRateLimited(scope, seconds) {
   return false;
 }
 
-function showFeedback(element, message) {
+function showFeedback(element, message, isHtml = false) {
   if (!element) {
     return;
   }
   element.hidden = false;
-  element.textContent = message;
+  if (isHtml) {
+    element.innerHTML = message;
+  } else {
+    element.textContent = message;
+  }
 }
 
 function showDiagnosisMessage(message) {
+  if (!diagnosisResult) diagnosisResult = document.getElementById('diagnosis-result');
+  if (!diagnosisResult) return;
   diagnosisResult.hidden = false;
   diagnosisResult.innerHTML = `<p>${escapeHtml(message)}</p>`;
 }

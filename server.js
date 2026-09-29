@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import compression from 'compression';
 import { GoogleGenAI } from '@google/genai';
@@ -17,6 +18,37 @@ app.use(express.json({ limit: '10mb' }));
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', hasGeminiKey: Boolean(process.env.GEMINI_API_KEY) });
+});
+
+// Dynamic Specialists Roster API (allows dynamic specialist registration instead of hardcoded data)
+let dynamicSpecialists = [];
+
+app.get('/api/specialists', (req, res) => {
+  res.json({ success: true, count: dynamicSpecialists.length, specialists: dynamicSpecialists });
+});
+
+app.post('/api/specialists', (req, res) => {
+  const { name, title, specialization, county, phone, availability = 'available' } = req.body;
+  if (!name || !phone) {
+    return res.status(400).json({ success: false, error: 'Name and phone are required' });
+  }
+  const newSpecialist = {
+    id: `spec-${Date.now()}`,
+    name: String(name).trim(),
+    title: String(title || 'Agricultural Specialist').trim(),
+    specialization: String(specialization || 'Agronomy & Crop Protection').trim(),
+    county: String(county || 'Kenya').trim(),
+    phone: String(phone).trim(),
+    availability,
+    avatarIcon: '👨‍🌾'
+  };
+  dynamicSpecialists.push(newSpecialist);
+  res.json({ success: true, specialist: newSpecialist });
+});
+
+app.delete('/api/specialists/:id', (req, res) => {
+  dynamicSpecialists = dynamicSpecialists.filter((s) => s.id !== req.params.id);
+  res.json({ success: true });
 });
 
 // Crop diagnosis endpoint using Google Gemini API
@@ -139,6 +171,33 @@ Respond ONLY with valid, raw JSON (no markdown formatting, no backticks, no wrap
   }
 });
 
+// Normalize trailing slashes (e.g. /services/ -> /services) to prevent relative path breakage
+app.use((req, res, next) => {
+  if (req.path.length > 1 && req.path.endsWith('/')) {
+    const query = req.url.slice(req.path.length);
+    const safePath = req.path.slice(0, -1);
+    return res.redirect(301, safePath + query);
+  }
+  next();
+});
+
+// Resolve static assets if requested with subpath prefixes (e.g. /services/styles.css -> /styles.css)
+app.use((req, res, next) => {
+  const ext = path.extname(req.path).toLowerCase();
+  if (['.css', '.js', '.webp', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.json', '.webmanifest', '.woff', '.woff2', '.ttf'].includes(ext)) {
+    const fileName = path.basename(req.path);
+    const rootFilePath = path.join(__dirname, fileName);
+    if (fs.existsSync(rootFilePath)) {
+      if (fileName.endsWith('.css') || fileName.endsWith('.js')) {
+        res.setHeader('Cache-Control', 'public, max-age=86400');
+      }
+      return res.sendFile(rootFilePath);
+    }
+    return res.status(404).type('text/plain').send('Asset not found');
+  }
+  next();
+});
+
 // Serve static files with caching and html extension support
 app.use(express.static(__dirname, {
   extensions: ['html'],
@@ -150,7 +209,7 @@ app.use(express.static(__dirname, {
         res.setHeader('Service-Worker-Allowed', '/');
       }
     }
-    // Cache HTML
+    // HTML pages: must revalidate so reloads always fetch the latest content
     else if (filePath.endsWith('.html')) {
       res.setHeader('Cache-Control', 'no-cache, must-revalidate');
     }
@@ -161,18 +220,25 @@ app.use(express.static(__dirname, {
   }
 }));
 
-// Explicit clean route handlers for top-level pages
+// Explicit route handlers for all top-level pages (both clean URLs and .html URLs)
 const pages = ['services', 'technology', 'about', 'contact', 'partnerships', 'smart-assist', 'intake', 'labour'];
 pages.forEach(page => {
-  app.get(`/${page}`, (req, res) => {
-    res.setHeader('Cache-Control', 'public, max-age=3600');
+  const handler = (req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
     res.sendFile(path.join(__dirname, `${page}.html`));
-  });
+  };
+  app.get(`/${page}`, handler);
+  app.get(`/${page}.html`, handler);
 });
 
-// Fallback to index.html for single-page applications or routing
+// Fallback to specific html file if exists, or index.html
 app.get('*', (req, res) => {
-  res.setHeader('Cache-Control', 'public, max-age=3600');
+  const cleanName = req.path.replace(/^\/|\/$/g, '');
+  const candidatePath = path.join(__dirname, `${cleanName}.html`);
+  res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+  if (cleanName && fs.existsSync(candidatePath)) {
+    return res.sendFile(candidatePath);
+  }
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 

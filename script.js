@@ -301,7 +301,7 @@ function normalizePath(urlStr) {
   try {
     const u = new URL(urlStr, window.location.origin);
     let p = u.pathname.replace(/\/$/, '') || '/';
-    if (p === '/index.html') p = '/';
+    if (p === '/index.html' || p === '/index') p = '/';
     return p;
   } catch (e) {
     return urlStr;
@@ -318,6 +318,8 @@ async function prefetchPage(url) {
     if (res.ok) {
       const text = await res.text();
       pageCache.set(norm, text);
+      const altNorm = norm.endsWith('.html') ? norm.replace(/\.html$/, '') : `${norm}.html`;
+      pageCache.set(altNorm, text);
     }
   } catch (err) {
     // Silently ignore prefetch failures
@@ -327,7 +329,8 @@ async function prefetchPage(url) {
 // Swap page content instantly from cached or fetched HTML
 async function navigateToPage(targetUrl, pushState = true) {
   const norm = normalizePath(targetUrl);
-  let html = pageCache.get(norm);
+  const altNorm = norm.endsWith('.html') ? norm.replace(/\.html$/, '') : `${norm}.html`;
+  let html = pageCache.get(norm) || pageCache.get(altNorm);
 
   if (!html) {
     try {
@@ -338,6 +341,7 @@ async function navigateToPage(targetUrl, pushState = true) {
       }
       html = await res.text();
       pageCache.set(norm, html);
+      pageCache.set(altNorm, html);
     } catch (e) {
       window.location.href = targetUrl;
       return;
@@ -360,10 +364,34 @@ async function navigateToPage(targetUrl, pushState = true) {
   document.title = newDoc.title;
   document.body.className = newDoc.body.className;
 
+  // Sync page-specific stylesheets from newDoc head to prevent unstyled layout
+  const currentStyles = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map((l) => l.getAttribute('href'));
+  newDoc.querySelectorAll('link[rel="stylesheet"]').forEach((l) => {
+    const href = l.getAttribute('href');
+    if (href && !currentStyles.includes(href)) {
+      const linkEl = document.createElement('link');
+      linkEl.rel = 'stylesheet';
+      linkEl.href = href;
+      document.head.appendChild(linkEl);
+    }
+  });
+
+  // Load and execute page-specific scripts (e.g. contact.js, intake.js) if not loaded
+  const currentScripts = Array.from(document.querySelectorAll('script[src]')).map((s) => s.getAttribute('src'));
+  newDoc.querySelectorAll('script[src]').forEach((s) => {
+    const src = s.getAttribute('src');
+    if (src && !currentScripts.includes(src) && !src.includes('script.js')) {
+      const scriptEl = document.createElement('script');
+      scriptEl.src = src;
+      scriptEl.defer = true;
+      document.body.appendChild(scriptEl);
+    }
+  });
+
   // Update navigation links active state
   document.querySelectorAll('.nav a').forEach((link) => {
     const linkNorm = normalizePath(link.getAttribute('href') || '');
-    link.classList.toggle('active', linkNorm === norm);
+    link.classList.toggle('active', linkNorm === norm || linkNorm === altNorm);
   });
 
   if (pushState) {
@@ -425,13 +453,21 @@ function initInstantNavigation() {
   // Background warm cache for all standard pages during idle
   const standardPages = [
     '/',
+    '/services',
     '/services.html',
+    '/technology',
     '/technology.html',
+    '/about',
     '/about.html',
+    '/contact',
     '/contact.html',
+    '/partnerships',
     '/partnerships.html',
+    '/labour',
     '/labour.html',
+    '/smart-assist',
     '/smart-assist.html',
+    '/intake',
     '/intake.html'
   ];
 
